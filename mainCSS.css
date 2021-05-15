@@ -1,0 +1,646 @@
+
+a {
+    text-decoration: none !important;
+}
+
+.background {
+    background-color: #444444 !important;
+}
+
+.navbar-content {
+    padding: 0px 40px;
+}
+
+.logo {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    color: #fff;
+    border-radius: 1px;
+    margin-right: 30px;
+    text-shadow: 1px 3px 3px black;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.input-group-btn .btn {
+    color: #fff;
+    border: 1px solid rgb(139, 139, 139);
+    background-color: rgb(29, 29, 29);
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+}
+
+.navbar-form {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.input-group .form-control {
+    z-index: 0;
+}
+
+.form-control {
+   
+    color: #ffffff;
+    background-color: rgb(59, 59, 59);
+    background-image: none;
+    border: 1px solid rgb(139, 139, 139);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    
+  }
+
+.form-control:focus {
+    border-color: #ffffff;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(69, 69, 70, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(40, 41, 41, 0.6);
+}
+
+#livesearch {
+    position: absolute;
+    width: 100%;
+    background-color: #0e0d0d;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+}
+
+#livesearch .list-group {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+#livesearch .list-search .list-search-title {
+    text-align: left;
+    width: auto;
+    height: 65px;
+}
+
+#livesearch .list-search .image {
+    float: left;
+    width: 45px;
+    height: 65px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    box-sizing: border-box;
+    display: block;
+}
+
+#livesearch .list-search {
+
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    background-color: rgb(54, 54, 54);
+    border: 1px solid rgb(0, 0, 0);
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+}
+
+#livesearch a{
+    color: rgb(255, 255, 255);
+}
+
+
+#livesearch .list-search b{
+    font-size: 12px;
+}
+
+#livesearch .list-search i{
+    display: block;
+    color: rgb(131, 131, 131);
+    font-size: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#livesearch .list-search:hover,
+#livesearch .list-search:focus{
+    background-color: #0f0f0f;
+
+}
+
+.content-logout {
+    height:50px;
+    color: rgb(255, 255, 255);
+}
+
+.content-logout > a{
+    color: rgb(255, 255, 255);
+}
+
+#logout {
+    width: 100px;
+    padding: 10px 10px;
+    height: 100%;
+    margin: 0 0;
+    font-size: 12px;
+    background-color: #222222;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: rgb(66, 66, 66);
+    background-clip: padding-box;
+    border: 0px;
+    -webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+}
+
+.category {
+    width: 720px;
+}
+
+
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 5px;
+    clear: both;
+    
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: rgb(255, 253, 253);
+    white-space: nowrap;
+}
+
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover {
+    color: #000000;
+    text-decoration: none;
+    background-color: rgb(66, 66, 66);
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 1150px;
+    height: 600px;
+    margin: auto;
+    
+}
+
+.slider{
+    margin-top: 50px;
+    height: 620px;
+    border: 2px solid #444444;
+}
+.content .contentRight{
+    position: relative;
+    background-color: rgb(53, 53, 53);
+    color: #fff;
+}
+
+.content .contentRight .col-sm-4 {
+    padding: 0px 0px;
+}
+
+.contentRight .nav-tabs>li>a {
+    color: #fff;
+    margin-right: 0px;
+    line-height: 1.42857143;
+    border: 0px;
+    border-radius: 0px 0px;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    color: #555555;
+    cursor: default;
+    background-color: rgb(214, 214, 214);
+    border: 0px;
+    border-bottom-color: transparent;
+  
+}
+
+
+.list-group .list-item .list-item-title {
+    text-align: left;
+    width: auto;
+    height: 90px;
+}
+
+.list-group .list-item .image {
+    float: left;
+    width: 75px;
+    height: 90px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    box-sizing: border-box;
+    display: block;
+}
+
+.list-group .list-item {
+    padding-left: 10px;
+    padding-right: 5px;
+    color: #fff;
+    background-color: rgb(26, 26, 26);
+    border-bottom: 1px solid #f0f0f0 ;
+}
+
+.list-group .list-item b{
+    font-size: 14px;
+}
+
+.list-group .list-item i{
+    display: block;
+    color: rgb(131, 131, 131);
+    font-size: 12px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.list-group .list-item:hover,
+.list-group .list-item:focus{
+    color: rgb(131, 131, 131);
+
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: rgb(71, 71, 71);
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    color: #f0f0f0;
+    cursor: default;
+    background-color: rgb(26, 26, 26);
+}
+
+.content h4 {
+    padding-top: 15px;
+    color: rgba(255, 255, 255, 0.966);
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.content .contentLeft h3{
+    position: relative;
+    color: rgb(255, 255, 255);
+
+}
+
+.icon-right {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    float: right;
+    padding-right: 15px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.icon-right:hover,
+.icon-right:focus {
+    color: rgb(19, 19, 19);
+}
+
+.content .thumbnail{
+    width: 160px;
+    height: 285px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: rgb(0, 0, 0);
+    box-sizing: border-box;
+}
+
+
+.content .thumbnail img{
+    width: 160px;
+    height: 230px;
+    box-sizing: border-box;
+}
+
+.content .thumbnail .caption {
+    color: #fff;
+    font-size: 12px;
+}
+
+.content .thumbnail .caption:hover,
+.content .thumbnail .caption:focus{
+    color: rgb(131, 131, 131);
+    
+}
+
+.thumbnail .caption {
+    padding: 9px 0;
+}
+
+.col-3{
+    
+    width: 33.33333333%;
+    position: relative;
+    min-height: 1px;
+}
+
+
+.film_status {
+    position: absolute;
+    top: 6px;
+    padding: 2px 5px;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #fff;
+    background-color: rgba(250, 16, 16, 0.986);
+}
+
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+    margin: 64px 15%;
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+    padding-top: 20px;
+    background-color: #3b3b3b;
+    height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+}
+
+.footer-icon a {
+    padding: 5px 15px;
+    color: rgb(26, 26, 26);
+    font-size: 20px;
+}
+
+.footer-icon a:focus,
+.footer-icon a:hover{
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.support {
+    color: #000;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: auto;
+        padding: 15px;
+    }
+    .row.content {height:auto;} 
+}
+
+.clear {
+	clear: both;
+}
+
+.film-information{
+    
+    margin-top: 50px;
+    border: 2px solid #444444;
+}
+
+
+
+.film-information .image img{
+    border: 10px solid #444444;
+}
+
+.film-information .image{
+    margin-left: 5%;
+    width: 320px;
+    
+}
+
+.film-information .information{
+    height: 470px;
+    background-color: #0e0d0d;
+    border: 2px solid #444444;
+}
+.film-information .information h1{
+    color: rgb(241, 241, 241);
+    margin-left: 20px;
+}
+
+.film-information .information h3{
+    color: rgb(156, 156, 156);
+    margin-left: 20px;
+}
+
+.film-content {
+    color: rgb(255, 255, 255);
+    margin: 32px 100px;
+}
+.film-content p{
+    color: rgb(255, 255, 255);
+    margin: 20px 10px;
+}
+
+.breadcrumb {
+    text-transform: uppercase;
+    padding: 8px 15px;
+    margin-top: 60px;
+    margin-bottom: 0px;
+    list-style: none;
+    background-color: #242424;
+    border-radius: 2px;
+}
+
+.breadcrumb > li {
+    display: inline-block;
+}
+
+.breadcrumb > li + li:before {
+    padding: 0 5px;
+    color: #ccc;
+    content: "/\00a0";
+}
+
+.breadcrumb > .active {
+    color: #777777;
+}
+
+.breadcrumb a {
+    padding: 5px 5px;
+    color: rgb(255, 255, 255);
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:focus{
+    color: rgb(77, 83, 85);
+}
+
+.filter-bar {
+    padding: 8px 15px;
+    margin-bottom: 0px;
+    background-color: #242424;
+    border-radius: 3px;
+}
+
+.filter-bar > form > select {
+    padding: 2px 15px;
+    margin: 5px 30px;
+    color: #fff;
+    background-color: #414141;
+}
+
+
+.filter-bar > form > select > option:focus,
+.filter-bar > form > select > option:hover {
+    background-color: #1d1d1d;
+}
+
+.filter-bar > form > input {
+    float: right;
+    padding: 3px 15px;
+    border-radius: 15px;
+    margin: 3px 5px;
+    color: rgb(255, 255, 255);
+    background-color: #414141;
+}
+
+.filter-bar > form > input:focus,
+.filter-bar > form > input:hover{
+    color: rgb(224, 224, 224);
+    background-color: #292929;
+}
+
+
+/* login */
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+  
+/* Set a style for all buttons */
+button {
+    background-color: #262928;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #201f1f;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #d1d1d1;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid rgb(51, 51, 51);
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(46, 45, 45);
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}

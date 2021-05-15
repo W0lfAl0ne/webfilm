@@ -1,0 +1,545 @@
+a {
+    text-decoration: none !important;
+}
+.navbar {
+    position: relative;
+    padding: 8px;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.background{
+    background-color: #444444;
+}
+
+
+.logo {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    color: #fff;
+    border-radius: 1px;
+    margin-right: 30px;
+    text-shadow: 1px 3px 3px black;
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    color: #555555;
+    cursor: default;
+    background-color: rgb(233, 233, 233);
+    border: 1px solid rgb(54, 54, 54);
+    border-bottom-color: transparent;
+  
+}
+
+.input-group-btn .btn {
+    color: #fff;
+    border: 1px solid rgb(139, 139, 139);
+    background-color: rgb(29, 29, 29);
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+  }
+
+.form-control {
+   
+    color: #ffffff;
+    background-color: rgb(59, 59, 59);
+    background-image: none;
+    border: 1px solid rgb(139, 139, 139);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    
+  }
+
+.form-control:focus {
+    border-color: #ffffff;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(69, 69, 70, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(40, 41, 41, 0.6);
+}
+
+#livesearch {
+    position: absolute;
+    width: 100%;
+    background-color: #0e0d0d;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+}
+
+#livesearch .list-group {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+#livesearch .list-search .list-search-title {
+    text-align: left;
+    width: auto;
+    height: 65px;
+}
+
+#livesearch .list-search .image {
+    float: left;
+    width: 45px;
+    height: 65px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    box-sizing: border-box;
+    display: block;
+}
+
+#livesearch .list-search {
+
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    background-color: rgb(54, 54, 54);
+    border: 1px solid rgb(0, 0, 0);
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+}
+
+#livesearch a{
+    color: rgb(255, 255, 255);
+}
+
+
+#livesearch .list-search b{
+    font-size: 12px;
+}
+
+#livesearch .list-search i{
+    display: block;
+    color: rgb(131, 131, 131);
+    font-size: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#livesearch .list-search:hover,
+#livesearch .list-search:focus{
+    background-color: #0f0f0f;
+
+}
+
+.content-logout {
+    height:50px;
+    color: rgb(255, 255, 255);
+}
+
+.content-logout > a{
+    color: rgb(255, 255, 255);
+}
+
+#logout {
+    width: 100px;
+    padding: 10px 10px;
+    height: 100%;
+    margin: 0 0;
+    font-size: 12px;
+    background-color: #222222;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: rgb(66, 66, 66);
+    background-clip: padding-box;
+    border: 0px;
+    -webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+}
+
+.category {
+    width: 720px;
+}
+
+
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 5px;
+    clear: both;
+    
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: rgb(255, 253, 253);
+    white-space: nowrap;
+}
+
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover {
+    color: #000000;
+    text-decoration: none;
+    background-color: rgb(66, 66, 66);
+}
+
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+    padding-top: 20px;
+    background-color: #3b3b3b;
+    height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: auto;
+        padding: 15px;
+    }
+    .row.content {height:auto;} 
+}
+
+.clear {
+	clear: both;
+}
+
+.breadcrumb {
+    text-transform: uppercase;
+    padding: 8px 15px;
+    margin-top: 60px;
+    margin-bottom: 0px;
+    list-style: none;
+    background-color: #242424;
+    border-radius: 2px;
+  }
+  .breadcrumb > li {
+    display: inline-block;
+  }
+  .breadcrumb > li + li:before {
+    padding: 0 5px;
+    color: #ccc;
+    content: "/\00a0";
+  }
+  .breadcrumb > .active {
+    color: #777777;
+  }
+
+.film-information{
+    
+    /* margin-top: 5px; */
+    border: 1px solid #333333;
+}
+
+
+
+.film-information .image img{
+    width: 90%;
+    margin-top: 10px;
+    border: 2px solid #444444;
+}
+
+.film-information .image{
+    width: 80%;
+    margin-bottom: 10px;
+    background-color: #242424;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.breadcrumb a {
+    padding: 5px 5px;
+    color: rgb(255, 255, 255);
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:focus{
+    color: rgb(77, 83, 85);
+}
+
+
+.film-information .title b,
+.film-information .title i{
+    text-shadow: 0 2px 5px black;
+    
+}
+
+.film-information .information{
+    background-color: #1f1e1e;
+    border: 2px solid #444444;
+}
+
+.film-information .title b{
+    font-size: 27px;
+    color: rgb(255, 255, 255);
+}
+
+.film-information .title i{
+    display: block;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(182, 175, 175);
+}
+
+.film-information .information p{
+    color: rgb(255, 255, 255);
+    margin-left: 20px;
+}
+
+.film-information .information a{
+    color: rgba(224, 222, 222, 0.76);
+}
+
+.film-information .information a:hover,
+.film-information .information a:focus{
+    color: rgb(142, 143, 146);
+}
+.film-information .information #status{
+    margin-top: 10px;
+}
+
+.film-information .information #status > i{
+    color: rgb(255, 0, 0);
+}
+
+.film-content {
+    color: rgb(235, 235, 235);
+    margin: 32px 100px;
+}
+.film-content p{
+    color: rgb(252, 252, 252);
+    margin: 5px 150px;
+    font-size: 16px;
+    line-height: 22px;
+    font-family: serif;
+}
+
+.film-information .image button {
+    margin: 10px auto;
+    width: 90px;
+    height: 35px;
+    background-color: #141414;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.video-block{
+    position: relative;
+    width: 1100px;
+    height: 600px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list-episode {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-episode {
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    color: rgb(255, 255, 255);
+    background-color: #242424;
+    border-radius: 4px;
+    border-color: #333333;
+}
+
+
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:focus,
+.nav-pills>li.active>a:hover {
+    color: #fff;
+    background-color: #000000;
+}
+
+.nav-pills>li>a:focus,
+.nav-pills>li>a:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: rgb(236, 236, 236);
+}
+
+.footer-icon a {
+    padding: 5px 15px;
+    color: rgb(26, 26, 26);
+    font-size: 20px;
+}
+
+.footer-icon a:focus,
+.footer-icon a:hover{
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.support {
+    color: #000;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+
+/* login */
+
+#id01 input[type=text],
+#id01 input[type=password], 
+#id02 input[type=text],
+#id02 input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+  
+/* Set a style for all buttons */
+#id01 button,
+#id02 button{
+    background-color: #262928;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#id01 button:hover,
+#id02 button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+#id01 .cancelbtn,
+#id02 .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #201f1f;
+}
+
+/* Center the image and position the close button */
+#id01 .imgcontainer,
+#id02 .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+#id01 img.avatar,
+#id02 img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+#id01 .container,
+#id02 .container {
+    padding: 16px;
+}
+
+#id01 span.psw,
+#id02 span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+#id01 .modal,
+#id02 .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+#id01 .modal-content,
+#id02 .modal-content {
+    background-color: #d1d1d1;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid rgb(51, 51, 51);
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+#id01 .close,
+#id02 .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#id01 .close:hover,
+#id01 .close:focus,
+#id02 .close:hover,
+#id02 .close:focus {
+    color: rgb(46, 45, 45);
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+#id01 .animate,
+#id02 .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    #id01 span.psw,
+    #id02 span.psw {
+        display: block;
+        float: none;
+    }
+    #id01 .cancelbtn,
+    #id02 .cancelbtn {
+        width: 100%;
+    }
+}
