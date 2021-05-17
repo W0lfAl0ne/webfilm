@@ -30,7 +30,14 @@ Filmplus là website xem phim online miễn phí chất lượng cao dành cho m
       
 ## Nhóm phát triển:
       1.Quách Thanh Sơn
-      
+  
+ ## Tài khoản đăng nhặp:
+      1. Quản lý
+         * tk:son
+         * mk:Aptx4869
+      2. Nhân viên
+         * tk:sonquach
+         * mk:Aptx4869
 ## Mô hình thực thể ER
 
 ![alt text](database.png)
