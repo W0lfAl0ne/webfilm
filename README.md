@@ -17,7 +17,7 @@ Filmplus là website xem phim online miễn phí chất lượng cao dành cho m
    
    2. ### Người quản lý (Admin):
       * Xem thông tin cá nhân của người dùng, tìm kiếm người dùng
-      * Xem danh sách những cuốn sách đã mượn 
+      * Xem danh sách phim 
       * Thêm, sửa, xóa phim
       
 ## Các kỹ năng sử dụng: 
