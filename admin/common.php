@@ -1,9 +1,10 @@
 <?php
-	session_start();
+	// session_start();
+	ob_start();
 	if(isset($_SESSION['username'])){
 		$name = $_SESSION['username'];
 		// get ID admin
-		require_once('database/database.php');
+		require_once('../database/database.php');
 		$sqlAd = "SELECT * from users WHERE user_name = '$name'";
 		$resultAd =  executeResult($sqlAd);
 		if(count($resultAd) > 0){
@@ -65,7 +66,7 @@
 						</li>
 						<li>
 							<form method="post" action="">
-								<a> <button id="logout" name="log_out" style=""> 
+								<a> <button id="logout" name="log_out" > 
 									<i class="fa fa-power-off"></i>Đăng xuất</button> 
 								</a>
 							</form>

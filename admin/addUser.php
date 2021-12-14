@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,12 +37,12 @@
                 <h2>Thêm User</h2>
             </div>
             <div class="form-update">
-                <form method="post" id="form-update" name="form-update" class="form-horizontal" action="" role="form" style="padding: 20px;">
+                <form method="post" id="form-update" name="form-update" class="form-horizontal" action="" role="form" >
 
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Tài khoản</label>
                         <div class="col-lg-7">
-                        <input type="text" class="form-control" name="username" id="username" value="">
+                        <input type="text" class="form-control" name="username" id="username" >
                         <label class="notifyerror" style="visibility: hidden; height: 0px" id="usernameerror">Tên tài khoản chỉ bao gồm ký tự a-z, A-Z và số</label>
                         </div>
                     </div>
@@ -46,7 +50,7 @@
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Mật khẩu</label>
                         <div class="col-lg-7">
-                        <input type="password" class="form-control" name="password" id="password1" value="">
+                        <input type="password" class="form-control" name="password" id="password1" >
                         <label class="notifyerror" style="visibility: hidden; height: 0px" id="password1error">Mật khẩu phải bao gồm chữ thường, chữ hoa và số, độ dài tối thiểu 8 ký tự</label>
                         </div>
                     </div>
@@ -55,7 +59,7 @@
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Xác nhận mật khẩu</label>
                         <div class="col-lg-7">
-                        <input type="password" class="form-control" name="password2" id="password2" value="">
+                        <input type="password" class="form-control" name="password2" id="password2" >
                         <label class="notifyerror" style="visibility: hidden; height: 0px" id="password2error1">Mật khẩu phải bao gồm chữ thường, chữ hoa và số, độ dài tối thiểu 8 ký tự</label>
                         </div>
                     </div>
@@ -63,7 +67,7 @@
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Họ tên</label>
                         <div class="col-lg-7">
-                            <input type="text" class="form-control" name="fullname" id="fullname" value="">
+                            <input type="text" class="form-control" name="fullname" id="fullname" >
                             <label class="notifyerror" style="visibility: hidden; height: 0px" id="fullnameerror">Tên chỉ bao gồm các chữ cái</label>  
                         </div>
                     </div>
@@ -78,7 +82,7 @@
                     <div class="form-group">
                         <label for="birthday" class="col-lg-3 control-label">Ngày sinh</label>
                         <div class="col-lg-7">
-                            <input class="form-control" type="date" value="" id="birthday" name="birthday">
+                            <input class="form-control" type="date"  id="birthday" name="birthday">
                         </div>
                     </div>
                     
@@ -104,7 +108,8 @@
                     </div>
                     
                     <div class="col-offset-3 col-lg-10">
-                        <button type="submit" class="btn btn-primary" id="button_update" name="button_update">Thêm</button>
+                      <div class="col-lg-7"></div>
+                      <button type="submit" class="btn btn-primary" id="button_update" name="button_update">Thêm</button>
                     </div>
 
                     <div class="clear"></div>
@@ -306,7 +311,7 @@
     </script>
 
     <?php
-        require_once('database/database.php');
+        require_once('../database/database.php');
         $conn = new mysqli(HOST, USERNAME, PASSWORD, DATABASE);
         mysqli_set_charset($conn,'utf8');
 
@@ -330,17 +335,16 @@
                 <?php
             }
             else{
-              $sql = "INSERT INTO users(user_id,user_name,full_name,password,email,birthday,sex,usertype)
-                      VALUES (3,'$username', '$fullName','$password','$email','$birthday','$gender','$usertype')";
+              $sql = "INSERT INTO users(user_name,full_name,password,email,birthday,gender,usertype)
+                      VALUES ('$username', '$fullName','$password','$email','$birthday','$gender','$usertype')";
 
                 
-              if(mysqli_query($conn,$sql)){
-                echo "
+              if(mysqli_query($conn,$sql)){?>
                 <script>
                   alert('Add user successfully!');
+                  location.href='addUser.php';
                 </script>
-                ";
-              }
+              <?php }
             }
         }
         mysqli_close($conn);

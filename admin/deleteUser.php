@@ -1,5 +1,7 @@
 <?php
-    require_once('database/database.php');
+	session_start();
+	ob_start();
+    require_once('../database/database.php');
 
     if(isset($_GET["id"])){
         $userID = $_GET['id'];

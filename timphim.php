@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start ();
 require_once('database/database.php');
 
 
@@ -21,7 +22,7 @@ $sql ="select * from nation";
 $result = executeResult($sql);
 $listNations = $result;
 
-$sql ="select * from filmType";
+$sql ="select * from filmtype";
 $result = executeResult($sql);
 $listFilmTypes = $result;
 
@@ -45,9 +46,9 @@ $listFilmTypes = $result;
  
   <nav class="navbar-inverse navbar-fixed-top">
         <div class="container-fluid " >
-            <a href="http://localhost/html_css"><b class="logo">FilmsPlus</b></a>
+            <a href="https://webfilmplus.000webhostapp.com"><b class="logo">FilmsPlus</b></a>
             <ul class="nav navbar-nav uppercase">
-                <li class="active"><a href="http://localhost/html_css"> <span class="glyphicon glyphicon-home"></span> Trang Chủ</a></li>
+                <li class="active"><a href="https://webfilmplus.000webhostapp.com"> <span class="glyphicon glyphicon-home"></span> Trang Chủ</a></li>
                 <li><a href="locphim.php?filmType_id=<?php echo $listFilmTypes[0]["filmType_id"] ?>"><?php echo $listFilmTypes[0]["filmType_name"] ?></a></li>
                 <li><a href="locphim.php?filmType_id=<?php echo $listFilmTypes[1]["filmType_id"] ?>"><?php echo $listFilmTypes[1]["filmType_name"] ?></a></li>
         
@@ -58,7 +59,7 @@ $listFilmTypes = $result;
                         foreach($listCategorys as $category) {
                         ?>
                         <li class="col-sm-3">
-                            <a class="" href="locphim.php?category_id='<?php echo $category['category_id']?>'"><?php echo $category['name']?></a>
+                            <a class="" href="locphim.php?category_id=<?php echo $category['category_id']?>"><?php echo $category['name']?></a>
                         </li>
                         <?php }?>
                     </ul>
@@ -72,7 +73,7 @@ $listFilmTypes = $result;
                     foreach($listNations as $nation) {
                     ?>
                     <li class="col-sm-12">
-                    <a href="locphim.php?nation_id='<?php echo $nation['nation_id']?>'"><?php echo $nation['nation_name']?></a>
+                    <a href="locphim.php?nation_id=<?php echo $nation['nation_id']?>"><?php echo $nation['nation_name']?></a>
                     </li>
                     <?php }?>
                 </ul>
@@ -108,7 +109,7 @@ $listFilmTypes = $result;
     
         <div class="row content">
             <ul class="col-sm-9 breadcrumb text-left" style="margin-top:0">
-                <li><a href="http://localhost/html_css"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li><a href="https://webfilmplus.000webhostapp.com"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
                 <li class="active">KẾT QUẢ TÌM KIẾM CHO '<?php echo $search?>'</li>        
             </ul>
             <div class="row col-sm-9 sidenav background">
@@ -119,7 +120,7 @@ $listFilmTypes = $result;
                             foreach($films_search as $film_search) {?>
                                 <div class="col-sm-3">
                                     <div class="thumbnail">
-                                        <a href="phim.php?id='<?php echo $film_search['film_id']?>'">
+                                        <a href="phim.php?id=<?php echo $film_search['film_id']?>">
                                             <img src="<?php echo $film_search['image'] ?>" alt="<?php echo $film_search['film_name']?>" style="width:100%">
                                             <div class="film_status"><?php 
                                                 if($film_search['status']==$film_search['episode_number']) echo 'Hoàn Tất';
@@ -163,7 +164,7 @@ $listFilmTypes = $result;
                             foreach($films as $film) if( $film['filmType_id']==1){
                             ?>
                             <li>
-                                <a class="list-item" href="phim.php?id='<?php echo $film['film_id']?>'">
+                                <a class="list-item" href="phim.php?id=<?php echo $film['film_id']?>">
                                     <img class="image" src="<?php echo $film['image'] ?>" alt="<?php echo $film['film_name']?>">
                                     <div class="list-item-title">
                                         <b><?php echo $film['film_name']?></b>
@@ -183,7 +184,7 @@ $listFilmTypes = $result;
                             foreach($films as $film) if( $film['filmType_id']==1){
                             ?>
                             <li>
-                                <a class="list-item" href="phim.php?id='<?php echo $film['film_id']?>'">
+                                <a class="list-item" href="phim.php?id=<?php echo $film['film_id']?>">
                                     <img class="image" src="<?php echo $film['image'] ?>" alt="<?php echo $film['film_name']?>">
                                     <div class="list-item-title">
                                         <b><?php echo $film['film_name']?></b>

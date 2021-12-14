@@ -5,43 +5,37 @@ $s = $_GET['s'];
 $search = addslashes($s);
 
 $sql = "select * from film where film_name like '%$search%' or default_name like '%$search%'";
-// $sql = "select * from film";
 $result = executeResult($sql);
-if(count($result)>0){
-$films = $result;
+if (count($result) > 0) {
+    $films = $result;
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
 
-<body>
-
+    <body>
         <div class="list-group">
             <?php
-            foreach($films as $film) {
+            foreach ($films as $film) {
             ?>
-                <a class="list-search" href="phim.php?id='<?php echo $film['film_id']?>'">
-                    <img class="image" src="<?php echo $film['image'] ?>" alt="<?php echo $film['film_name']?>">
+                <a class="list-search" href="phim.php?id='<?php echo $film['film_id'] ?>'">
+                    <img class="image" src="<?php echo $film['image'] ?>" alt="<?php echo $film['film_name'] ?>">
                     <div class="list-search-title">
-                        <b><?php echo $film['film_name']?></b>
-                        <i><?php echo $film['default_name']?> (<?php echo $film['release_year']?>)</i>
-                    
+                        <b><?php echo $film['film_name'] ?></b>
+                        <i><?php echo $film['default_name'] ?> (<?php echo $film['release_year'] ?>)</i>
+
                     </div>
                 </a>
 
-            <?php }?>
+            <?php } ?>
         </div>
+    </body>
 
-    
-
-
-</body>
-</html>
+    </html>
 <?php } else { ?>
     <div class="list-search">
-    <b style="color:#fff" >Không Tìm Thấy Kết Quả Phù Hợp</b>
+        <b style="color:#fff">Không Tìm Thấy Kết Quả Phù Hợp</b>
     </div>
-    
-    <?php } ?>
 
+<?php } ?>

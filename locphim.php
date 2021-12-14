@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start ();
 require_once('database/database.php');
 
 
@@ -51,9 +52,9 @@ $films_search = $result;
  
     <nav class="navbar-inverse navbar-fixed-top">
         <div class="container-fluid " >
-            <a href="http://localhost/html_css"><b class="logo">FilmsPlus</b></a>
+            <a href="https://webfilmplus.000webhostapp.com"><b class="logo">FilmsPlus</b></a>
             <ul class="nav navbar-nav uppercase">
-                <li class="active"><a href="http://localhost/html_css"> <span class="glyphicon glyphicon-home"></span> Trang Chủ</a></li>
+                <li class="active"><a href="https://webfilmplus.000webhostapp.com"> <span class="glyphicon glyphicon-home"></span> Trang Chủ</a></li>
                 <li><a href="locphim.php?filmType_id=<?php echo $listFilmTypes[0]["filmType_id"] ?>"><?php echo $listFilmTypes[0]["filmType_name"] ?></a></li>
                 <li><a href="locphim.php?filmType_id=<?php echo $listFilmTypes[1]["filmType_id"] ?>"><?php echo $listFilmTypes[1]["filmType_name"] ?></a></li>
         
@@ -64,7 +65,7 @@ $films_search = $result;
                         foreach($listCategorys as $category) {
                         ?>
                         <li class="col-sm-3">
-                            <a class="" href="locphim.php?category_id='<?php echo $category['category_id']?>'"><?php echo $category['name']?></a>
+                            <a class="" href="locphim.php?category_id=<?php echo $category['category_id']?>"><?php echo $category['name']?></a>
                         </li>
                         <?php }?>
                     </ul>
@@ -78,7 +79,7 @@ $films_search = $result;
                     foreach($listNations as $nation) {
                     ?>
                     <li class="col-sm-12">
-                    <a href="locphim.php?nation_id='<?php echo $nation['nation_id']?>'"><?php echo $nation['nation_name']?></a>
+                    <a href="locphim.php?nation_id=<?php echo $nation['nation_id']?>"><?php echo $nation['nation_name']?></a>
                     </li>
                     <?php }?>
                 </ul>
@@ -200,6 +201,7 @@ $films_search = $result;
                                         <b><?php echo $film['film_name']?></b>
                                         <i><?php echo $film['default_name']?></i>
                                         <i><?php echo $film['release_year']?></i>
+                                        <i>Lượt Xem: <span><?php echo $film['view'] ?></span ></i>
                                     </div>
                                 </a>
                             </li>
@@ -220,6 +222,7 @@ $films_search = $result;
                                         <b><?php echo $film['film_name']?></b>
                                         <i><?php echo $film['default_name']?></i>
                                         <i><?php echo $film['release_year']?></i>
+                                        <i>Lượt Xem: <span><?php echo $film['view'] ?></span ></i>
                                     </div>
                                 </a>
                             </li>
@@ -238,6 +241,7 @@ $films_search = $result;
                                         <b><?php echo $film['film_name']?></b>
                                         <i><?php echo $film['default_name']?></i>
                                         <i><?php echo $film['release_year']?></i>
+                                        <i>Lượt Xem: <span><?php echo $film['view'] ?></span ></i>
                                     </div>
                                 </a>
                             </li>

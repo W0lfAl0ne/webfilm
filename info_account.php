@@ -1,5 +1,6 @@
 <?php 
   session_start();
+  ob_start ();
   require_once('database/database.php');
 
   $sql ="select * from category";
@@ -28,7 +29,7 @@
 
   $received_name  = $info['user_name'];
   $received_birthday=$info['birthday'];
-  $received_sex = $info['sex'];
+  $received_gender = $info['gender'];
   $received_fullname = $info['full_name'];
   $received_email = $info['email'];
   $id=$info['user_id'];
@@ -49,7 +50,7 @@
               full_name = $fullName,
               email = $email,
               birthday = $birthday,
-              sex = $gender
+              gender = $gender
             WHERE user_id = $id";  
     $conn = new mysqli(HOST, USERNAME, PASSWORD,DATABASE);
     mysqli_set_charset($conn,'utf8');
@@ -167,7 +168,7 @@
       font-size: 14px;
       line-height: 1.428571429;
       color: #555555;
-      vertical-align: middle;
+      /* vertical-align: middle; */
       background-color: #ffffff;
       border: 1px solid #cccccc;
       border-radius: 4px;
@@ -195,7 +196,7 @@
       padding-left: 20px;
       margin-top: 10px;
       margin-bottom: 10px;
-      vertical-align: middle;
+      /* vertical-align: middle; */
     }
 
     .radio label,
@@ -543,10 +544,10 @@
               <div class="col-lg-7">
                 <label class="checkbox-inline">
                   <input type="radio" name="gender" id="update-gender-male" value="male" 
-                  <?php echo ($received_sex=='male')?'checked':'' ?>> Nam</label>
+                  <?php echo ($received_gender=='male')?'checked':'' ?>> Nam</label>
                   <label class="checkbox-inline">
                   <input type="radio" name="gender" id="update-gender-female" value="female"
-                  <?php echo ($received_sex=='female')?'checked':'' ?>> Nữ
+                  <?php echo ($received_gender=='female')?'checked':'' ?>> Nữ
                   </label>
               </div>
             </div>

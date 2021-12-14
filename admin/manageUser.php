@@ -1,5 +1,7 @@
 <?php
-    require_once('database/database.php');
+	session_start();
+	ob_start();
+    require_once('../database/database.php');
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +60,7 @@
                                             <th scope="col">User name</th>
                                             <th scope="col">Họ và Tên</th>
                                             <th scope="col">Email</th>
-                                            <th scope="col">Loại tài khỏa</th>
+                                            <th scope="col">Loại tài khoản</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>

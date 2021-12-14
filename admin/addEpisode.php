@@ -1,23 +1,15 @@
 <?php
-    require_once('database/database.php');
+    session_start();
+	ob_start();
+    require_once('../database/database.php');
 
     if(isset($_GET["id"])){
         $filmID = $_GET['id'];
     }
     $sql = "SELECT * FROM film WHERE film_id = $filmID";
     $result = executeResult($sql);
-    
-    if (count($result) == 0) { 
-        echo "No required user";
-    } else {
-        $film = $result[0];
-
-        $sql = "SELECT * FROM episodes WHERE film_id = ".$film['film_id']."";
-        $episodes = executeResult($sql);
-
-    }?>
-
-
+    $film = $result[0];
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +52,14 @@
             </div>
 
             <form action="" method="post">
-    
+                <div>
+                    <label for="episode" class="col-md-2">
+                        Tập số
+                    </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="episode" value="" name="episode">
+                    </div>
+                </div>
                 <div>
                     <label for="name_episode" class="col-md-2">
                         Tên tập phim
@@ -74,19 +73,12 @@
                         Link tập phim
                     </label>
                     <div class="col-md-9">
-                            <input type="file" name="video_name" id="video_name" onchange="getlink()"/>
+                            
                             <input type="text" class="form-control" id="video_link" name="video" >
                             <p class="help-block">
                                 Ví dụ: images/video/cuoc-chien-vo-cuc.jpg
                             </p>
-                            <script>
-                                function getlink() {
-                                    var name =  document.getElementById("video_name").value;
-                                    var n = name.lastIndexOf('\\'); 
-                                    var result = name.substring(n + 1);
-                                    document.getElementById("video_link").value = "images/video/" + result;
-                                }
-                            </script>
+                            
                         </div>
                 </div>
                 <div class="row">
@@ -100,16 +92,18 @@
 
             <?php
             if(isset($_POST["button_post"])){
-                
+                $episode = $_POST["episode"];
                 $name_episode = $_POST["name_episode"];
                 $content = $_POST["video"];
             
-                $sql = "INSERT INTO episodes(film_id,episode_name,url)            
-                    VALUES ('$filmID', '$name_episode','$content')";
+                $sql = "INSERT INTO episodes(film_id,episode,episode_name,url)            
+                    VALUES ($filmID,$episode,'$name_episode','$content')";
 
                 $conn = new mysqli(HOST, USERNAME, PASSWORD, DATABASE);
                 mysqli_set_charset($conn,'utf8');
                 $result = mysqli_query($conn,$sql);
+                echo $sql;
+                
                 if($result){
                     
                     ?>

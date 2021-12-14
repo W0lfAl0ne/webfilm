@@ -195,6 +195,14 @@ a {
     
 }
 
+.slider p {
+    overflow: hidden;
+    display: -webkit-box;
+    text-shadow: 2px 0px 5px black;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
 .slider{
     margin-top: 50px;
     height: 620px;

@@ -1,9 +1,13 @@
+<?php
+	session_start();
+	ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit User - Dark Admin</title>
+    <title>Edit Film</title>
 
     <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="asset/font-awesome/css/font-awesome.min.css" />
@@ -30,7 +34,7 @@
 </head>
 <body>
     <?php
-    require_once('database/database.php');
+    require_once('../database/database.php');
 
     if(isset($_GET["id"])){
         $filmID = $_GET['id'];
@@ -54,14 +58,6 @@
             </div>
             <form method="post" id="form-insert-film" name="form-insert-film" class="form-horizontal" action="" role="form" >
                 <div>
-                    <label for="ID-film" class="col-md-2">
-                        ID phim
-                    </label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="ID-film" value="<?php echo $row["film_id"]; ?>" readonly>
-                    </div>
-                </div>
-                <div>
                     <label for="film-name" class="col-md-2">
                         Tên phim
                     </label>
@@ -75,14 +71,6 @@
                     </label>
                     <div class="col-md-9">
                         <input type="text" class="form-control" id="film-name2" name="film-name2" value="<?php echo $row["default_name"]; ?>">
-                    </div>
-                </div>
-                <div>
-                    <label for="status" class="col-md-2">
-                        Trạng thái
-                    </label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="status" name="status" value="<?php echo $row["status"]; ?>">
                     </div>
                 </div>
                 <div>
@@ -216,19 +204,12 @@
                     Link ảnh 
                     </label>
                     <div class="col-md-9">
-                        <input type="file" name="image_name" id="image_name" onchange="alertName()"/>
+                        
                         <input type="text" class="form-control" id="image_link" name="image" value="<?php echo $row["image"]; ?>">
                         <p class="help-block">
                             Ví dụ: /images/cuoc-chien-vo-cuc.jpg
                         </p>
-                        <script>
-                            function alertName() {
-                                var name =  document.getElementById("image_name").value;
-                                var n = name.lastIndexOf('\\'); 
-                                var result = name.substring(n + 1);
-                                document.getElementById("image_link").value = "image/" + result;
-                            }
-                        </script>
+                        
                     </div>
                 </div>
 
@@ -237,19 +218,12 @@
                         Link Trailer
                     </label>
                     <div class="col-md-9">
-                        <input type="file" name="trailer_name" id="trailer_name" onchange="alertNameTrailer()"/>
+                        
                         <input type="text" class="form-control" id="trailer_link" name="trailer" value="<?php echo $row["trailer"]; ?>">
                         <p class="help-block">
                             Ví dụ: https://www.youtube.com/embed/S12-4mXCNj4
                         </p>
-                        <script>
-                            function alertNameTrailer() {
-                                var name =  document.getElementById("trailer_name").value;
-                                var n = name.lastIndexOf('\\'); 
-                                var result = name.substring(n + 1);
-                                document.getElementById("trailer_link").value = "trailer/" + result;
-                            }
-                        </script>
+                        
                     </div>
                 </div>
                 <div>
@@ -276,11 +250,10 @@
    
    
     <?php
-        require_once('database/database.php');
+        require_once('../database/database.php');
         if(isset($_POST["button_update"])){
             $name = $_POST["film-name"];
             $name2 = $_POST["film-name2"];
-            $status = $_POST["status"];
             $director = $_POST["director"];
             $type_movie = $_POST["type_movie"];
             $nation = $_POST["nation"];
@@ -311,8 +284,7 @@
             else{
                 $sql = "UPDATE film SET 
                     film_name='$name',
-                    default_name='$name2', 
-                    status='$status', 
+                    default_name='$name2',
                     directors='$director',
                     filmType_id='$type_movie',
                     nation_id='$nation',

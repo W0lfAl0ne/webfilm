@@ -1,6 +1,7 @@
-
-
-        
+<?php
+	session_start();
+	ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +34,7 @@
 </head>
 <body>
 <?php
-    require_once('database/database.php');
+    require_once('../database/database.php');
 
     if(isset($_GET["id"])){
         $userID = $_GET['id'];
@@ -102,9 +103,9 @@
                         <label class="col-lg-3 control-label">Giới tính</label>
                         <div class="col-lg-7">
                             <label class="checkbox-inline">
-                            <input type="radio" name="gender" id="update-gender-male" value="male" <?php if($row["sex"] == "male") echo "checked";?>> Nam</label>
+                            <input type="radio" name="gender" id="update-gender-male" value="male" <?php if($row["gender"] == "male") echo "checked";?>> Nam</label>
                             <label class="checkbox-inline">
-                                <input type="radio" name="gender" id="update-gender-female" value="female" <?php if($row["sex"] == "female") echo "checked";?>> Nữ
+                                <input type="radio" name="gender" id="update-gender-female" value="female" <?php if($row["gender"] == "female") echo "checked";?>> Nữ
                             </label>
                         </div>
                     </div>
@@ -320,7 +321,7 @@
     </script>
 
     <?php
-        require_once('database/database.php');
+        require_once('../database/database.php');
         if(isset($_POST["button_update"])){
             $username = $_POST["username"];
             $password = $_POST["password"];
@@ -340,10 +341,10 @@
                 <script>
                     alert('Tài khoản với ID <?php echo $userID;?> chưa có');
                 </script>";
-                <?php
-            }
+                
+            <?php }
             else{
-                $sql = "UPDATE users SET user_name='$username', password='$password', full_name='$fullName', email='$email', birthday='$birthday', sex='$gender' WHERE user_id = $userID";
+                $sql = "UPDATE users SET user_name='$username', password='$password', full_name='$fullName', email='$email', birthday='$birthday', gender='$gender' WHERE user_id = $userID";
                 $conn = new mysqli(HOST, USERNAME, PASSWORD, DATABASE);
                 mysqli_set_charset($conn,'utf8');
                 $result = mysqli_query($conn,$sql); 
@@ -360,7 +361,7 @@
                     mysqli_close($conn);
                 ?>
                     <script>
-                        alert("Edit user fail!"); -->
+                        alert("Edit user fail!");
                     </script>
                 <?php
                 }

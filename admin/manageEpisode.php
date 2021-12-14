@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +34,7 @@
 </head>
 <body>
     <?php
-    require_once('database/database.php');
+    require_once('../database/database.php');
 
     if(isset($_GET["id"])){
         $filmID = $_GET['id'];
@@ -43,7 +47,7 @@
     } else {
         $film = $result[0];
 
-        $sql = "SELECT * FROM episodes WHERE film_id = ".$film['film_id']."";
+        $sql = "SELECT * FROM episodes WHERE film_id = ".$film['film_id']." ORDER BY episode";
         $episodes = executeResult($sql);
 
     ?>
@@ -83,6 +87,7 @@
                                 var data = <?php echo json_encode($episodes, JSON_HEX_TAG); ?>;
                                 // document.getElementById("episode_name").value = l;
                                 for(var i=0 ;i<l;i++)if(data[i]['episode_id']==id){
+                                    document.getElementById("episode").value = data[i]['episode'];
                                     document.getElementById("episode_name").value = data[i]['episode_name'];
                                     document.getElementById("video_link").value = data[i]['url'];
                                     break;
@@ -92,7 +97,14 @@
                             </script>
                     </div>
                 </div>
-
+                <div>
+                    <label for="episode" class="col-md-2">
+                        Tập số
+                    </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="episode" name="episode" value="<?php if(!empty($episodes)) echo $episodes[0]["episode"]; ?>">
+                    </div>
+                </div>
                 <div>
                     <label for="episode_name" class="col-md-2">
                         Tên tập
@@ -107,19 +119,12 @@
                         Link tập phim
                     </label>
                     <div class="col-md-9">
-                            <input type="file" name="video_name" id="video_name" onchange="getlink()"/>
+                            
                             <input type="text" class="form-control" id="video_link" name="video" value="<?php if(!empty($episodes)) echo $episodes[0]['url'] ?>">
                             <p class="help-block">
                                 Ví dụ: images/video/cuoc-chien-vo-cuc.jpg
                             </p>
-                            <script>
-                                function getlink() {
-                                    var name =  document.getElementById("video_name").value;
-                                    var n = name.lastIndexOf('\\'); 
-                                    var result = name.substring(n + 1);
-                                    document.getElementById("video_link").value = "images/video/" + result;
-                                }
-                            </script>
+                            
                         </div>
                         <div id="choss"></div>
                 </div>
@@ -151,16 +156,18 @@
    
    
     <?php
-        require_once('database/database.php');
+        require_once('../database/database.php');
         if(isset($_POST["button_update"])){
             $episodeId = $_POST["episode_id"];
+            $episode = $_POST["episode"];
             $episodeName = $_POST["episode_name"];
             $url = $_POST["video"];
             
             $conn = new mysqli(HOST, USERNAME, PASSWORD,DATABASE);
             mysqli_set_charset($conn,'utf8');
             
-                $sql = "UPDATE episodes SET 
+                $sql = "UPDATE episodes SET
+                    episode=$episode,
                     episode_name='$episodeName',
                     url='$url'
                 WHERE episode_id = $episodeId";
@@ -176,7 +183,7 @@
                 } else{ 
                 ?>
                     <script>
-                        alert("Edit film fail!"); -->
+                        alert("Edit film fail!");
                     </script>
                 <?php
                 }
@@ -187,8 +194,7 @@
         
 
 
-    }
-    ?>
+    }?>
     
 
 

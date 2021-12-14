@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +57,7 @@
 <body>
 
 	<?php
-        require_once('database/database.php');
+        require_once('../database/database.php');
 
         // $sql = "SELECT film_id FROM film ";
         // $result = executeResult($sql);
@@ -138,15 +142,6 @@
                         </label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" id="episodeNumber" name="episodeNumber">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="status" class="col-md-2">
-                            Trạng thái
-                        </label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" id="status" name="status">
                         </div>
                     </div>
                     
@@ -281,42 +276,63 @@
                         Link ảnh 
                         </label>
                         <div class="col-md-9">
-                            <input type="file" name="image_name" id="image_name" onchange="alertName()"/>
+                            <!-- <input type="file" name="image_name" id="image_name" onchange="alertName()"/> -->
                             <input type="text" class="form-control" id="image_link" name="image" >
                             <p class="help-block">
-                                Ví dụ: /images/cuoc-chien-vo-cuc.jpg
+                                Ví dụ: https://play.google.com/store/movies/details/Avengers_Endgame?id=9G1LgUoApBU&hl=vi&gl=US
                             </p>
-                            <script>
+                            <!-- <script>
                                 function alertName() {
                                     var name =  document.getElementById("image_name").value;
                                     var n = name.lastIndexOf('\\'); 
                                     var result = name.substring(n + 1);
                                     document.getElementById("image_link").value = "image/" + result;
                                 }
-                            </script>
+                            </script> -->
                         </div>
                     </div>
+
                     <div>
                         <label for="image" class="col-md-2">
                         Link trailer
                         </label>
                         <div class="col-md-9">
-                            <input type="file" name="trailer_name" id="trailer_name" onchange="alertNametrailer()"/>
+                            <!-- <input type="file" name="trailer_name" id="trailer_name" onchange="alertNametrailer()"/> -->
                             <input type="text" class="form-control" id="trailer_link" name="trailer" >
                             <p class="help-block">
                                 Ví dụ: https://www.youtube.com/embed/S12-4mXCNj4
                             </p>
-                            <script>
+                            <!-- <script>
                                 function alertNametrailer() {
                                     var name =  document.getElementById("trailer_name").value;
                                     var n = name.lastIndexOf('\\'); 
                                     var result = name.substring(n + 1);
                                     document.getElementById("trailer_link").value = "trailer/" + result;
                                 }
-                            </script>
+                            </script> -->
                         </div>
                     </div>
 
+                    <div>
+                        <label for="poster" class="col-md-2">
+                        Link ảnh bìa
+                        </label>
+                        <div class="col-md-9">
+                            <!-- <input type="file" name="poster_name" id="poster_name" onchange="alertName()"/> -->
+                            <input type="text" class="form-control" id="poster_link" name="poster" >
+                            <p class="help-block">
+                                Ví dụ: https://play.google.com/store/movies/details/Avengers_Endgame?id=9G1LgUoApBU&hl=vi&gl=US
+                            </p>
+                            <!-- <script>
+                                function alertName() {
+                                    var name =  document.getElementById("poster_name").value;
+                                    var n = name.lastIndexOf('\\'); 
+                                    var result = name.substring(n + 1);
+                                    document.getElementById("poster_link").value = "poster/" + result;
+                                }
+                            </script> -->
+                        </div>
+                    </div>
 
                     <div>
                         <label for="decription" class="col-md-2">
@@ -326,6 +342,7 @@
                             <textarea name="decription" id="decription" cols="82" rows="10"></textarea>
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="col-md-9"></div>
                         <div class="col-md-3">
@@ -349,12 +366,11 @@
         $year = $_POST["year"];
         $nation = $_POST["nation"];
         $episodeNumber = $_POST["episodeNumber"];
-        $status = $_POST["status"];
         $type_movie = $_POST["type_movie"];
         $link_image = $_POST["image"];
+        $link_poster = $_POST["poster"];
         $link_trailer = $_POST["trailer"];
         $description = $_POST["decription"];
-
 
         $actors = $_POST["actor"];
         $categorysfilm = $_POST["category"];
@@ -363,8 +379,8 @@
         $categorysfilm = explode(', ', $categorysfilm);
         
 
-        $sql = "INSERT INTO film(film_name,default_name,directors,release_year,nation_id,episode_number,status,filmType_id,description,trailer,image)            
-            VALUES ('$name', '$name2','$director','$year','$nation','$episodeNumber','$status','$type_movie','$description','$link_trailer','$link_image')";
+        $sql = "INSERT INTO film(film_name,default_name,directors,release_year,nation_id,episode_number,status,filmType_id,view,description,trailer,image,poster)            
+            VALUES ('$name', '$name2','$director','$year','$nation','$episodeNumber',0,'$type_movie',0,'$description','$link_trailer','$link_image','$link_poster')";
         $result = mysqli_query($conn,$sql);
         if($result){?>
             <script>
@@ -373,7 +389,7 @@
         <?php
         } else { ?>
             <script>
-                alert("Add film fail!"); -->
+                alert("Add film fail!");
             </script>
         <?php }
 
@@ -387,7 +403,6 @@
         release_year = '$year' AND
         nation_id = '$nation' AND
         episode_number = '$episodeNumber' AND
-        status = '$status' AND
         filmType_id = '$type_movie' AND
         description = '$description' AND
         trailer = '$link_trailer' AND

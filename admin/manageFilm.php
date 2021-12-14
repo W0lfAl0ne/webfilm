@@ -1,5 +1,7 @@
 <?php
-    require_once('database/database.php');
+	session_start();
+	ob_start();
+    require_once('../database/database.php');
 ?>
 
 <!DOCTYPE html>
@@ -146,7 +148,7 @@
                 var tr = params.parentElement.parentElement;
                 var td0= tr.cells.item(0).innerHTML;
                 td0 = td0.replace(' ','' ); //id của user có space ???
-                location.href= "editFilm.php?id=" + td0;
+                location.href= "editfilm.php?id=" + td0;
         };
         function manageEpisode(params) {
                 var tr = params.parentElement.parentElement;

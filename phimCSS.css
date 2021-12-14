@@ -371,6 +371,89 @@ footer {
     border-color: #333333;
 }
 
+/* comment */
+
+.commnent {
+    width: 80%;
+    color: white;
+    padding: 50px 100px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #212020;
+}
+
+
+.commnent .user {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.commnent .user .info {
+    float: left;
+    margin-left: 10px;
+    width: 85%;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.commnent .user .info .name {
+    float: left;
+    height:30px;
+    font-size:20px;
+    color: rgb(170, 168, 168);
+}
+
+.commnent .user .info .time {
+    float: left;
+    height:30px;
+    margin-left:25px;
+    line-height:30px;
+    font-weight:initial;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.commnent .user img {
+    float: left;
+    margin-top:5px;
+    width: 100px;
+}
+.commnent .user form {
+    float: left;
+    margin-top:5px;
+    margin-left: 10px;
+    width: 85%;
+
+}
+
+.commnent .user p {
+    width: 100%;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.commnent .user button {
+    color: #000;
+    float:right;
+    width:50px;
+}
+
+.commnent .user button:hover,
+.commnent .user button:focus {
+    background-color:#2b2a2a;
+    color:#fff;
+}
+.commnent .user form textarea {
+    font-size:20px;
+    line-height:1;
+    color: black;
+    width: 100%;
+    height: 100px;
+}
+
+br, hr {
+    clear:both;
+}
+
+
 
 .nav-pills>li.active>a,
 .nav-pills>li.active>a:focus,
@@ -409,9 +492,7 @@ footer {
 /* login */
 
 #id01 input[type=text],
-#id01 input[type=password], 
-#id02 input[type=text],
-#id02 input[type=password] {
+#id01 input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -421,8 +502,7 @@ footer {
 }
   
 /* Set a style for all buttons */
-#id01 button,
-#id02 button{
+#id01 button {
     background-color: #262928;
     color: white;
     padding: 14px 20px;
@@ -432,50 +512,43 @@ footer {
     width: 100%;
 }
 
-#id01 button:hover,
-#id02 button:hover {
+#id01 button:hover {
     opacity: 0.8;
 }
 
 /* Extra styles for the cancel button */
-#id01 .cancelbtn,
-#id02 .cancelbtn {
+#id01 .cancelbtn {
     width: auto;
     padding: 10px 18px;
     background-color: #201f1f;
 }
 
 /* Center the image and position the close button */
-#id01 .imgcontainer,
-#id02 .imgcontainer {
+#id01 .imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
     position: relative;
 }
 
-#id01 img.avatar,
-#id02 img.avatar {
+#id01 img.avatar {
     width: 40%;
     border-radius: 50%;
 }
 
-#id01 .container,
-#id02 .container {
+#id01 .container {
     padding: 16px;
 }
 
-#id01 span.psw,
-#id02 span.psw {
+#id01 span.psw {
     float: right;
     padding-top: 16px;
 }
 
 /* The Modal (background) */
-#id01 .modal,
-#id02 .modal {
+.modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 3; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -487,8 +560,7 @@ footer {
 }
 
 /* Modal Content/Box */
-#id01 .modal-content,
-#id02 .modal-content {
+#id01 .modal-content {
     background-color: #d1d1d1;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid rgb(51, 51, 51);
@@ -496,8 +568,7 @@ footer {
 }
 
 /* The Close Button (x) */
-#id01 .close,
-#id02 .close {
+#id01 .close {
     position: absolute;
     right: 25px;
     top: 0;
@@ -507,16 +578,13 @@ footer {
 }
 
 #id01 .close:hover,
-#id01 .close:focus,
-#id02 .close:hover,
-#id02 .close:focus {
+#id01 .close:focus {
     color: rgb(46, 45, 45);
     cursor: pointer;
 }
 
 /* Add Zoom Animation */
-#id01 .animate,
-#id02 .animate {
+#id01 .animate {
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s
 }
@@ -533,13 +601,12 @@ footer {
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
-    #id01 span.psw,
-    #id02 span.psw {
+    #id01 span.psw {
         display: block;
         float: none;
     }
-    #id01 .cancelbtn,
-    #id02 .cancelbtn {
+    #id01 .cancelbtn {
         width: 100%;
     }
 }
+

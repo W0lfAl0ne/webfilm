@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start ();
 require_once('database/database.php');
 
 $sql ="select  * from category";
@@ -38,7 +39,7 @@ if(isset($_POST["button_update"])){
       <?php
   }
   else{
-    $sql = "INSERT INTO users(user_name,full_name,password,email,birthday,sex,usertype)
+    $sql = "INSERT INTO users(user_name,full_name,password,email,birthday,gender,usertype)
             VALUES ('$username', '$fullName','$password','$email','$birthday','$gender',3)";
 
       if(mysqli_query($conn,$sql)){
