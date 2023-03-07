@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 13, 2021 lúc 02:03 PM
+-- Thời gian đã tạo: Th3 07, 2023 lúc 03:00 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
--- Phiên bản PHP: 7.3.30
+-- Phiên bản PHP: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -25,7 +25,7 @@ DELIMITER $$
 --
 -- Các hàm
 --
-CREATE FUNCTION `total` (`id` INT) RETURNS INT(11) READS SQL DATA
+CREATE DEFINER=`root`@`localhost` FUNCTION `total` (`id` INT) RETURNS INT(11) READS SQL DATA
 BEGIN
 	DECLARE t INT;
     SELECT count(film_id) INTO t
@@ -53,63 +53,43 @@ CREATE TABLE `actor` (
 --
 
 INSERT INTO `actor` (`actor_id`, `name`) VALUES
-(1, 'Song Joong Ki'),
-(2, 'Jun Yeo Bin'),
-(3, 'Ok Taec Yeon'),
-(4, 'Kim Yeo Jin'),
-(5, 'Jo Han Chul'),
-(6, 'Kwak Dong Yeon'),
-(7, 'Lưu Đào'),
-(8, 'Châu Du Dân'),
-(9, 'Quy Á Lôi'),
-(10, 'Triệu Văn Tuyên'),
-(11, ' Phan Nhất Y'),
-(12, 'Chenglin Liu'),
-(13, 'Jianan Guo'),
-(14, 'Kwok Wai'),
-(15, 'Qianchan Liao'),
-(16, 'Yong Liu'),
-(17, 'Diêu Thần'),
-(18, 'Ngô Diệc Phàm'),
-(19, 'Lâm Doãn'),
-(20, 'Lâm Canh Tân'),
-(134, 'Hà Lạc Lạc'),
-(135, 'Trương Lăng Hách'),
-(136, 'Đới Lộ Oa'),
-(137, 'Nhan An'),
-(138, 'Phạm Soái Kỳ'),
-(139, 'Thường Bân'),
-(140, 'Hoàng Đức Nghị'),
-(141, 'Lý Bách Huệ'),
-(142, 'Phạm Tịnh Y'),
-(143, 'Minh Đạo'),
-(144, 'Điềm Nữu'),
-(145, 'Tô Hiểu Đồng'),
-(146, 'Vương Tử Kỳ'),
-(147, 'Dương Đình Đông'),
-(148, 'Triệu Nghiêu Kha'),
-(149, 'Trịnh Hợp Huệ Tử'),
-(150, 'Huỳnh Thánh Trì'),
-(151, 'Hồ Văn Triết'),
-(152, 'Đài Nhã Văn'),
-(153, 'Trịnh Diệu'),
-(154, 'Lý Điện Tôn'),
-(155, 'Cố Thiên Dật'),
-(156, 'Rachel McAdams'),
-(157, 'Benedict Cumberbatch'),
-(158, 'Tilda Swinton'),
-(159, 'Chiwetel Ejiofor'),
-(160, 'Benedict Wong'),
-(161, 'Mads Mikkelsen'),
-(162, 'Michael Stuhlbarg'),
-(163, 'Elizabeth Olsen'),
-(164, 'Tom Holland'),
-(165, 'Marisa Tomei'),
-(166, 'Chris Evans'),
-(167, 'Robert Downey Jr'),
-(168, 'Paul Rudd'),
-(169, 'Scarlett Johansson'),
-(170, 'Sebastian Stan');
+(172, 'Rachel McAdams'),
+(173, 'Benedict Cumberbatch'),
+(174, 'Tilda Swinton'),
+(175, 'Chiwetel Ejiofor'),
+(176, 'Benedict Wong'),
+(177, 'Mads Mikkelsen'),
+(178, 'Michael Stuhlbarg'),
+(179, 'Elizabeth Olsen'),
+(180, 'Tom Holland'),
+(181, 'Marisa Tomei'),
+(182, 'Chris Evans'),
+(183, 'Robert Downey Jr'),
+(184, 'Paul Rudd'),
+(185, 'Scarlett Johansson'),
+(186, 'Sebastian Stan'),
+(187, 'Hugo Weaving'),
+(188, 'Samuel L. Jackson'),
+(189, 'Hayley Atwell'),
+(190, 'Tommy Lee Jones'),
+(191, 'Dominic Cooper'),
+(192, 'Robert Redford'),
+(193, 'Anthony Mackie'),
+(194, 'Cobie Smulders'),
+(195, 'Frank Grillo'),
+(196, 'Michael B. Jordan'),
+(197, 'Forest Whitaker'),
+(198, 'Martin Freeman'),
+(199, 'Andy Serkis'),
+(200, 'Chadwick Boseman'),
+(201, 'Daniel Kaluuya'),
+(202, 'Angela Bassett'),
+(203, 'Danai Gurira'),
+(204, 'Mark Ruffalo'),
+(205, 'Chris Hemsworth'),
+(206, 'Jeremy Renner'),
+(207, 'Tom Hiddleston'),
+(208, 'Clark Gregg');
 
 -- --------------------------------------------------------
 
@@ -158,15 +138,6 @@ CREATE TABLE `comment` (
   `content` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Đang đổ dữ liệu cho bảng `comment`
---
-
-INSERT INTO `comment` (`comment_id`, `film_id`, `user_id`, `time`, `content`) VALUES
-(1, 1, 1, '2021-11-19 16:19:51', 'Năm 8 tuổi, Park Joo-hyung (Song Joong-ki) đến Ý sau khi được một gia đình người Ý nhận nuôi. Sau đó anh gia nhập băng đảng Mafia, nơi anh được Don Fabio - người đứng đầu gia tộc Cassano nhận nuôi. Park Joo-hyung được đổi tên thành Vincenzo Cassano và trở thành luật sư người Ý. Anh làm việc cho Mafia với tư cách là một cố vấn và là cánh tay phải đáng tin cậy nhất của Don Fabio. Sau khi Fabio chết thì Paolo (con ruột của Fabio và là thủ lĩnh mới) cố gắng giết Vincenzo. Nên anh đã bỏ trốn đến Seoul ở Hàn Quốc và bắt đầu thu hồi một lượng vàng khổng lồ (15 tấn) được cất giấu trong mật thất nằm ở dưới tòa nhà Geumga-dong Plaza. Vincenzo đã giúp một ông trùm người Trung Quốc cất giữ vàng trong một kho tiền được bảo vệ bởi mafia trong khu phức hợp. Ông trùm chết. Vì không ai khác biết về số vàng đó. Vincenzo đã lên kế hoạch để lấy số vàng và sử dụng nó làm quỹ hưu trí của mình sau khi rời Ý. Tuy nhiên, một công ty bất động sản thuộc tập đoàn Babel đã chiếm quyền sở hữu tòa nhà một cách bất hợp pháp và Vincenzo phải sử dụng các kỹ năng của mình để lấy lại tòa nhà và khôi phục lại vận may của mình. Tại Hàn Quốc, Vincenzo đã gặp gỡ và quen biết với luật sư Hong Cha-Young (Jeon Yeo-bin), cô là kiểu luật sư sẽ làm mọi cách để thắng kiện. Vincenzo Cassano đã phải lòng Hong Cha-Young. Anh cũng đạt được công bằng xã hội theo cách riêng của mình.'),
-(2, 1, 3, '2021-11-19 16:19:58', 'Sáng hôm sau, Đường Tăng đang tìm nước để nấu cháo thì đi ngang qua một ngôi nhà. Chủ nhà, một nữ nhân xinh đẹp trong bộ trang phục lộng lẫy (Vương Lệ Khôn) và các chị em của nàng ta, chào đón tất cả bọn họ và mời họ ăn sáng. Tuy nhiên, Tôn Ngộ Không thấy được chúng là Yêu Nhện; hắn cố ý khiêu khích chúng, cho đến khi nàng ta và đồng bọn hiện nguyên hình. Trong trận chiến sau đó, lũ nhện tạo thành một con nhện khổng lồ. Sau khi bị nhiễm độc bởi con nhện, Sa Tăng đổ bệnh và từ từ trở về hình dáng ban đầu, một con cá khổng lồ. Tôn Ngộ Không đánh bại con nhện, Đường Tăng cố gắng cảm hóa nó nhưng Ngộ Không đã giết con yêu quái bằng một cú đánh chí mạng vào đầu. Một lần nữa, Đường Tăng rất bực tức vì sự bất tuân của Tôn Ngộ Không. Tối hôm đó, Tôn Ngộ Không giận dữ thảo luận với các đồ đệ khác về kế hoạch giết Đường Tăng của mình, nhưng những đồ đệ lại sợ quyền năng Như lai thần chưởng của sư phụ. Đường Tăng nghe được cuộc trò chuyện này và cầu nguyện với Đức Phật để giúp đỡ anh ta và cũng thú nhận rằng anh ta thực sự không biết, hoặc có, quyền năng của Đức Phật. Trư Bát Giới nghe lỏm được và nói với Tôn Ngộ Không, người sau đó đã thách thức Đường Tăng đánh nhau với hắn. Khi Tôn Ngộ Không chuẩn bị tấn công, một tia sáng chói lòa tỏa sáng từ trên trời và hắn ta rút lui'),
-(18, 1, 3, '2021-11-30 19:38:39', 'bộ trang phục lộng lẫy (Vương Lệ Khôn) và các chị em của nàng ta, chào đón tất cả bọn họ và mời họ ăn sáng. Tuy nhiên, Tôn Ngộ Không thấy được chúng là Yêu Nhện; hắn cố ý khiêu khích chúng, cho đến khi nàng ta và đồng bọn hiện nguyên hình. Trong trận chiến sau đó, lũ nhện tạo thành một con nhện khổng lồ. Sau khi bị nhiễm độc bởi con nhện, Sa Tăng đổ bệnh và từ từ trở về hình dáng ban đầu, một con cá khổng lồ. Tôn Ngộ Không đánh bại con nhện, Đường Tăng cố gắng cảm hóa nó nhưng Ngộ Không đã giết con yêu quái bằng một cú đánh chí mạng vào đầ');
-
 -- --------------------------------------------------------
 
 --
@@ -186,47 +157,7 @@ CREATE TABLE `episodes` (
 --
 
 INSERT INTO `episodes` (`episode_id`, `film_id`, `episode`, `episode_name`, `url`) VALUES
-(1, 1, 1, 'tập 1', '//ok.ru/videoembed/2423924263543'),
-(2, 1, 2, 'tập 2', '//ok.ru/videoembed/2425395153527'),
-(3, 1, 3, 'tập 3', '//ok.ru/videoembed/2436141943415'),
-(4, 1, 4, 'tập 4', '//ok.ru/videoembed/2438472731255'),
-(5, 1, 5, 'tập 5', '//ok.ru/videoembed/2449145858679'),
-(6, 1, 6, 'tập 6', '//ok.ru/videoembed/2451723258487'),
-(7, 1, 7, 'tập 7', '//ok.ru/videoembed/2463320115831'),
-(8, 1, 8, 'tập 8', '//ok.ru/videoembed/2465319488119'),
-(9, 1, 9, 'tập 9', '//ok.ru/videoembed/2477898599031'),
-(10, 1, 10, 'tập 10', '//ok.ru/videoembed/2481011100279'),
-(11, 1, 11, 'tập 11', '//ok.ru/videoembed/2509086067438'),
-(12, 1, 12, 'tập 12', '//ok.ru/videoembed/2511773829870'),
-(13, 1, 13, 'tập 13', '//ok.ru/videoembed/2511646427767'),
-(14, 1, 14, 'tập 14', '//ok.ru/videoembed/2514182408823'),
-(15, 1, 15, 'tập 15', '//ok.ru/videoembed/2528582109815'),
-(16, 1, 16, 'tập 16', '//ok.ru/videoembed/2531172813431'),
-(17, 2, 1, 'tập 1', 'https://em.iq.com/player.html?id=1unh0803ofk&mod=vn&lang=vi_vn'),
-(18, 2, 2, 'tập 2', 'https://em.iq.com/player.html?id=2fbw70b7shk&mod=vn&lang=vi_vn'),
-(19, 2, 3, 'tập 3', 'https://em.iq.com/player.html?id=2eo27zjaogs&mod=vn&lang=vi_vn'),
-(20, 2, 4, 'tập 4', 'https://em.iq.com/player.html?id=z3oxspp9k4&mod=vn&lang=vi_vn'),
-(21, 2, 5, 'tập 5', 'https://em.iq.com/player.html?id=ptrqxtnwbw&mod=vn&lang=vi_vn'),
-(22, 2, 6, 'tập 6', 'https://em.iq.com/player.html?id=1lwiulrlu4c&mod=vn&lang=vi_vn'),
-(23, 2, 7, 'tập 7', 'https://em.iq.com/player.html?id=2fzq3bi7vbs&mod=vn&lang=vi_vn'),
-(24, 2, 8, 'tập 8', 'https://em.iq.com/player.html?id=1we072tjre0&mod=vn&lang=vi_vn'),
-(25, 2, 9, 'tập 9', 'https://em.iq.com/player.html?id=b4gwjf2gb8&mod=vn&lang=vi_vn'),
-(26, 2, 10, 'tập 10', 'https://em.iq.com/player.html?id=25eg3gk2h5o&mod=vn&lang=vi_vn'),
-(27, 3, 1, 'Full', '//ok.ru/videoembed/2583166192366'),
-(28, 4, 1, 'Full', '//ok.ru/videoembed/2585426791150'),
-(29, 1, 0, 'Tập 17', '//ok.ru/videoembed/2561129122423'),
-(32, 32, 0, 'Tập 1', '//ok.ru/videoembed/2557182151414'),
-(33, 32, 0, 'Tập 2', '//ok.ru/videoembed/2557195782902'),
-(34, 32, 0, 'Tập 3', '//ok.ru/videoembed/2557343697654'),
-(35, 32, 0, 'Tập 4', '//ok.ru/videoembed/2557360278262'),
-(36, 32, 0, 'Tập 5', '//ok.ru/videoembed/2557378300662'),
-(37, 32, 0, 'Tập 6', '//ok.ru/videoembed/2557401434870'),
-(38, 32, 0, 'Tập 7', '//ok.ru/videoembed/2557411068662'),
-(39, 32, 0, 'Tập 8', '//ok.ru/videoembed/2557420374774'),
-(40, 32, 0, 'Tập 9', '//ok.ru/videoembed/2559526308598'),
-(41, 32, 0, 'Tập 10', '//ok.ru/videoembed/2559532534518'),
-(51, 35, 1, 'full', 'https://www.youtube.com/embed/EhZdDbLtjR4'),
-(53, 36, 1, 'full', 'https://www.youtube.com/embed/dKrVegVI0Us');
+(59, 44, 1, 'Full', '64074329ca758-video.mp4');
 
 --
 -- Bẫy `episodes`
@@ -282,13 +213,27 @@ CREATE TABLE `film` (
 --
 
 INSERT INTO `film` (`film_id`, `film_name`, `default_name`, `directors`, `release_year`, `nation_id`, `episode_number`, `status`, `filmType_id`, `view`, `description`, `trailer`, `image`, `poster`) VALUES
-(1, 'Vincenzo', 'Vincenzo', 'Kim Hee Won', 2021, 1, 20, 17, 1, 1, 'Vincenzo kể về Cassano là một người Hàn Quốc được gia đình Ý nhận nuôi từ bé. Anh vốn sở hữu sức hút vô song cùng kỹ năng đàm phán tuyệt đỉnh, mục đích duy nhất của anh là trả thù dưới danh nghĩa trùm Mafia Ý. Vốn dĩ Vincenzo không muốn trở lại đất nước Hàn Quốc, quê hương với những quá khứ đẫm máu, đau khổ nhưng anh buộc phải về khi phát hiện ra một băng đảng độc ác, có nguồn gốc sâu xa đến từ Hàn Quốc. Tại đây a cùng với nữ luật sư tài giỏi Hong Cha Young (Jeon Yeo Bin thủ vai) và thực tập sinh Jang Joon Woo (Taecyeon đảm nhận) kết hợp điều tra những vụ án bí ẩn chưa có lời giải đáp trong khoảng thời gian dài.', 'https://www.youtube.com/embed/S12-4mXCNj4', 'https://i0.wp.com/image.motphim.net/poster/vincenzo-8706.jpg?1617547106', 'https://ss-images.saostar.vn/wp1000/pc/1612324479842/105252591_1.jpg'),
-(2, 'ĐẠI TỐNG CUNG TỪ', 'Palace of Devotion', 'Lý Thiếu Hồng', 2021, 2, 61, 61, 1, 7, 'Đại Tống Cung Từ kể về mối tình của Lưu Nga (Lưu Đào đóng) và Triệu Hằng (Châu Du Dân đóng). Lưu Nga từ nhỏ mồ côi cả cha và mẹ. Bà lưu lạc khắp nơi, gặp được một nghệ nhân tên Cung Mỹ nạp làm thiếp và cùng đi làm nghề nghệ nhân kim hoàn. Tài nghệ Cung Mỹ nổi tiếng trong kinh thành, Tương vương Triệu Hằng nghe đến, đưa về phủ của mình để phục vụ, Lưu Nga cũng đi theo Cung Mỹ vào phủ, đó là lúc Triệu Hằng gặp được Lưu Nga. Lưu Nga thông minh xinh đẹp, lại cùng tuổi với Triệu Hằng nên cả hai nhanh chóng thân thiết, dần dần thành nhất kiến chung tình. Lấy bối cảnh lịch sử Hàm Bình Chi Trị và Nhân Tông Thịnh Trị làm không gian lịch sử của phim. Đại Tống Cung Từ tường thuật sinh động những biến cố, sự kiện từ năm 985 đến năm 1033 công nguyên. Vào thời đại Chân Tông Bắc Tống, những vị quan tài đức nổi tiếng, mối bang giao giữa nước Tống và các nước lân cận, nương tựa lẫn nhau, kiềm chế lẫn nhau.', 'https://www.youtube.com/embed/Ig8UREAq1ck', 'https://i0.wp.com/image.motphim.net/poster/dai-tong-cung-tu-8788.jpg?1618335713', 'https://bloganchoi.com/wp-content/uploads/2021/03/review-phim-dai-tong-cung-tu.jpg'),
-(3, 'Lôi Chấn Tử: Phong Thần Duyên Khởi', 'Thunder Twins', 'Zhao Cong', 2021, 2, 1, 1, 2, 8, 'Thuở xưa Thiên Tôn dùng linh khí trời đất bày trận Phong Thần, người tộc Vũ trời sinh đã có cánh, do thám chuyện thế gian giữa đất trời, một khi gặp loạn thế, sẽ lợi dụng đôi cánh Phong Lôi khởi động trận. Những năm cuối Ân Thương, đứa trẻ định mệnh Lôi Chấn Tử và Tân Hoàn gánh vác sứ mệnh của người tộc Vũ, muốn sử dụng đôi cánh Phong Lôi cùng sức mạnh Tướng Tinh mở trận Phong Thần, câu chuyện bắt đầu từ đây.', 'https://www.youtube.com/embed/o796irNT61g', 'https://pic8.iqiyipic.com/image/20210224/c7/64/v_157246033_m_601_en_260_360.jpg', 'https://static.ssphim.net/static/5fe2d564b3fa6403ffa11d1c/6086ca22dad8d3182ae807f1_loi-chan-tu-1.jpg'),
-(4, 'TÂY DU KÝ: MỐI TÌNH NGOẠI TRUYỆN 2', 'Journey To The West: Demon Chapte', 'Châu Tinh Trì, Từ Khắc', 2017, 2, 1, 1, 2, 9, 'Tây Du Ký: Mối Tình Ngoại Truyện 2 - Tây Du Hành Ma: Lần này thầy trò Đường tăng trên hành trình đi Tây thiên thỉnh kinh . Tuy bề ngoài 4 thầy trò luôn hòa thuận đoàn kết nhưng ẩn sâu trong đó luôn có sự xung đột bằng mặt không bằng lòng', 'https://www.youtube.com/embed/nV9s7HZrHzY', 'https://i0.wp.com/image.motphim.net/poster/tay-du-ky-moi-tinh-ngoai-truyen-2-245.jpg?1537845301', 'https://i.ytimg.com/vi/IHZP9KZgYOo/maxresdefault.jpg'),
-(32, 'Anh Ấy Hoàn Hảo', 'Love Crossed', 'Yu Zhong Zhong, Wu Jian Xin', 2021, 2, 24, 10, 1, 6, 'Anh Ấy Hoàn Hảo – Love Crossed (2021) kể về cuộc gặp gỡ và trải nghiệm tình yêu của hai nữ chính và bốn thần tượng “ảo”, kêu gọi mọi người quay về thực tại, quý trọng cuộc sống, cuối cùng sẽ gặt hái được tình yêu đẹp.\r\n\r\nLục Tiếu ấm áp như mùa xuân trong thế giới ảo nhưng lại khá nhạy cảm và cô độc trong cuộc sống thực. Tô Liệt có thể phải trải qua một cuộc sống đầy khó khăn nhưng cô ấy vẫn luôn hy vọng rằng sẽ gặp được hoàng tử hoàn hảo trong cuộc đời của mình.\r\n\r\nTrên thực tế bộ phim xoay quanh bốn nhân vật chính hoàn hảo tên Y4 gồm Lục Tiếu, Tô Liệt, Hứa Niệm và Lạc Khải. Bốn nhân vật hư cấu này được xây dựng dựa trên cơ sở dữ liệu về nhóm hoa mỹ nam G4 mà công ty giải trí Diệu đã thu thập được. Nhóm G4 có nhiều khuyết điểm, hoàn toàn trái ngược với nhóm Y4, hơn nữa còn không có kinh nghiệm trong chuyện tình cảm.\r\n\r\nNữ chính Khương Khả và Quan Thiên Nhã vô tình phát hiện ra bí mật của Love Boys và âm mưu phía sau của Giải trí Diệu. CEO của giải trí Diệu Từ Quảng hàn âm thầm thao túng mọi chuyện, dưới sự ảnh hưởng của Khả Lạc cùng Thiên Nhã, kế hoạch bỏ trốn của G4 gặp muôn vàn khó khăn.', 'https://www.youtube.com/embed/sRhp1vyZJUY', 'https://i.imgur.com/fsBLvHf.jpg', 'https://phim33.co/upload/images/2021/05/anh-ay-hoan-hao-2021-big.jpg'),
-(35, 'Phù Thủy Tối Thượng', 'Doctor Strange', 'Scott Derrickson', 2016, 3, 1, 1, 2, 10, 'Phù Thủy Tối Thượng - Doctor Strange là câu truyệnv về một chuyên gia giải phẫu thần kinh. Sau một tai nạn xe hơi khủng khiếp, Stephen đã đến Tây Tạng học cách điều khiển được tiềm lực ma thuật bên trong bản thân và của thế giới xung quanh, cũng như cách mượn sức mạnh của các thần linh và chúa quỷ. Khi quyền năng của Stephen đạt tới cực đại thì cũng là lúc cái tên Dotor Strange ra đời. Trong truyện tranh nhân vật này còn được Death (người yêu của Thanos) ban cho cuộc sống trường sinh bất lão. Sau này Dr. Strane trở về Mỹ, dùng sức mạnh của mình để bảo vệ người vô tội, bảo vệ thế giới khỏi những thế lực hắc ám. Sự nghiệp siêu anh hùng của ông cũng bắt đầu từ đây.', 'https://www.youtube.com/embed/EhZdDbLtjR4', 'https://mp-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&url=https%3A%2F%2Fi0.wp.com%2Fimage.motphim.net%2Fposter%2Fphu-thuy-toi-thuong-208.jpg', 'https://lh3.googleusercontent.com/proxy/54owsA2EJuctD1ux9j4ECLMoEUoanrP61yZR2a1BkjvIgYH84yo0Vc1ykH8NaDpj5URPOJjT6sb-rzPI6Bx9CcPnCoBhn4iLv5ZA1e1b9Zi8umCANAYl-JRU61_vv57m3Mn_eZvLdN-7hrrIsw'),
-(36, 'CAPTAIN AMERICA 3: NỘI CHIẾN SIÊU ANH HÙNG', 'Captain America: Civil War', 'Anthony Russo, Joe Russo', 2016, 3, 1, 1, 2, 9, 'Captain America: Nội Chiến Siêu Anh Hùng sẽ trở lại sau một mùa hè bùng nổ với “Avengers: Đế Chế Ultron” và “Ant-Man – Người Kiến”, Marvel Studios tiếp tục khiến các khán giả đứng ngồi không yên khi hé lộ những tình tiết kịch tính của cuộc nội chiến nảy lửa giữa các siêu anh hùng, mở đầu cho Phase 3 trong Vũ Trụ Điện Ảnh Marvel. Trailer mở đầu với phân cảnh đã từng xuất hiện trong After Credit của “Ant-Man: Người Kiến” – Falcon và Captain America tìm thấy Bucky!. “Chiến binh mùa đông” Bucky đã nhớ lại mọi thứ và Captain sẵn sàng cứu anh khỏi sự truy đuổi của chính phủ. Cùng với nhiều sự vụ xảy ra và biệt đội Avengers góp phần không nhỏ trong việc làm thiệt hại tài sản, chính phủ quyết định thiết lập cơ quan quản lý và giám sát những siêu anh hùng này. Sự chia rẽ nội bộ bắt đầu xảy đến. Một bên được lãnh đạo bởi Steve Rogers (Captain America) với mong muốn duy trì cả biệt đội để thực hiện mục tiêu bảo vệ nhân loại mà không có sự can thiệp nào từ bên ngoài. Phe còn lại do Tony Stark (Iron Man) đứng đầu, luôn hỗ trợ giám sát và có trách nhiệm giải trình mọi việc làm với chính phủ. Kịch tính được đẩy lên cao trào khi Captain America và Bucky cùng trực tiếp chiến đấu với Iron Man. Các siêu anh hùng khác cũng chia thành 2 phe, nhưng Marvel vẫn chưa chính thức xác nhận ai sẽ về phe nào. Biệt đội siêu anh hùng trong bom tấn mới nhất này sẽ có thêm hai thành viên đáng chú ý: Black Panther (Chadwick Boseman thủ vai) và Spider-Man do Tom Holland thủ vai – lần đầu tiên xuất hiện trong Vũ Trụ Điện Ảnh Marvel.', 'https://www.youtube.com/embed/dKrVegVI0Us', 'https://upload.wikimedia.org/wikipedia/vi/5/53/Captain_America_Civil_War_poster.jpg', 'https://vtv1.mediacdn.vn/thumb_w/650/2016/captain-america-civil-war-wallpaper-more-final-piece-for-now-607639-1461931850002.jpg');
+(44, 'Phù Thủy Tối Thượng', 'Doctor Strange', 'Scott Derrickson', 2016, 3, 1, 1, 2, 1, 'Phù Thủy Tối Thượng - Doctor Strange là câu truyệnv về một chuyên gia giải phẫu thần kinh. Sau một tai nạn xe hơi khủng khiếp, Stephen đã đến Tây Tạng học cách điều khiển được tiềm lực ma thuật bên trong bản thân và của thế giới xung quanh, cũng như cách mượn sức mạnh của các thần linh và chúa quỷ. Khi quyền năng của Stephen đạt tới cực đại thì cũng là lúc cái tên Dotor Strange ra đời. Trong truyện tranh nhân vật này còn được Death (người yêu của Thanos) ban cho cuộc sống trường sinh bất lão. Sau này Dr. Strane trở về Mỹ, dùng sức mạnh của mình để bảo vệ người vô tội, bảo vệ thế giới khỏi những thế lực hắc ám. Sự nghiệp siêu anh hùng của ông cũng bắt đầu từ đây.', 'https://www.youtube.com/embed/Lt-U_t2pUHI', '6407381745a61-Doctor_Strange_poster.jpg', '6407381745e52-poster-strange.jpg'),
+(45, 'Captain America 3: Nội Chiến Siêu Anh Hùng', 'Captain America: Civil War', 'Anthony Russo, Joe Russo', 2016, 3, 1, 0, 2, 0, 'Captain America: Nội Chiến Siêu Anh Hùng sẽ trở lại sau một mùa hè bùng nổ với “Avengers: Đế Chế Ultron” và “Ant-Man – Người Kiến”, Marvel Studios tiếp tục khiến các khán giả đứng ngồi không yên khi hé lộ những tình tiết kịch tính của cuộc nội chiến nảy lửa giữa các siêu anh hùng, mở đầu cho Phase 3 trong Vũ Trụ Điện Ảnh Marvel. Trailer mở đầu với phân cảnh đã từng xuất hiện trong After Credit của “Ant-Man: Người Kiến” – Falcon và Captain America tìm thấy Bucky!. “Chiến binh mùa đông” Bucky đã nhớ lại mọi thứ và Captain sẵn sàng cứu anh khỏi sự truy đuổi của chính phủ. Cùng với nhiều sự vụ xảy ra và biệt đội Avengers góp phần không nhỏ trong việc làm thiệt hại tài sản, chính phủ quyết định thiết lập cơ quan quản lý và giám sát những siêu anh hùng này. Sự chia rẽ nội bộ bắt đầu xảy đến. Một bên được lãnh đạo bởi Steve Rogers (Captain America) với mong muốn duy trì cả biệt đội để thực hiện mục tiêu bảo vệ nhân loại mà không có sự can thiệp nào từ bên ngoài. Phe còn lại do Tony Stark (Iron Man) đứng đầu, luôn hỗ trợ giám sát và có trách nhiệm giải trình mọi việc làm với chính phủ. Kịch tính được đẩy lên cao trào khi Captain America và Bucky cùng trực tiếp chiến đấu với Iron Man. Các siêu anh hùng khác cũng chia thành 2 phe, nhưng Marvel vẫn chưa chính thức xác nhận ai sẽ về phe nào. Biệt đội siêu anh hùng trong bom tấn mới nhất này sẽ có thêm hai thành viên đáng chú ý: Black Panther (Chadwick Boseman thủ vai) và Spider-Man do Tom Holland thủ vai – lần đầu tiên xuất hiện trong Vũ Trụ Điện Ảnh Marvel.', 'https://www.youtube.com/embed/S12-4mXCNj4', '640738a8e8969-captain.jpg', '640738a8e8bd7-poster-captain_america_civil_war.jpg'),
+(46, 'Phù Thủy Tối Thượng Trong Đa Vũ Trụ Hỗn Loạn', 'Captain America: Kẻ Báo Thù Đầu Tiên', 'Joe Johnston', 2011, 3, 1, 0, 2, 0, 'Captain America: Kẻ Báo Thù Đầu Tiên lấy bối cảnh phim bắt đầu năm 1942, khi Mỹ đang tham gia Thế chiến II và cần tới những chiến binh can trường. Chàng trai Steve Rogers (Chris Evans) là một người như vậy, nhưng thể hình quá thấp bé khiến anh không thể đạt được ước mơ tòng quân. Cơ may đến với Rogers khi anh được chọn tham gia một thí nghiệm của chính phủ, giúp biến người thường trở thành siêu chiến binh. Mọi việc diễn ra suôn sẻ, biến Rogers thành một người cao to vạm vỡ, đầu óc tiếp thu mọi kỹ năng chiến đấu nhanh và vẫn giữ được trái tim nhân hậu.Anh trở thành Captain America, biểu tượng của nước Mỹ kể từ đó. Đối thủ của anh là phe Phát-xít, với quái nhân Red Skull, kẻ không chỉ quyền năng mà còn rất tàn ác.', 'https://www.youtube.com/embed/S12-4mXCNj4', '640739e51def5-Poster_Captain_America_1.jpg', '640739e51e256-poster-kebaothudautien.png'),
+(47, 'Captain America 2: Chiến Binh Mùa Đông', 'Captain America: The Winter Soldier', 'Anthony Russo, Joe Russo', 2014, 3, 1, 0, 2, 0, 'Chiến Binh Mùa Đông - Captain America: The Winter Soldier là phần tiếp theo của Captain America: The First Avenger. Steve Rogers muốn thấu hiểu một nước Mỹ hiện đại sau khi bị đông lạnh 50 năm trong nước đá. Một mối đe dọa mới chống lại S.H.I.E.L.D xuất hiện. Đó chính là Chiến Binh Mùa Đông. Trong lúc nguồn gốc của Chiến Binh Mùa Đông không rõ ràng, mối đe dọa của SHEILD đến từ tổ chức Hydra. Đặc biệt là sau khi thỏa hiệp với Nick Fury và chất Romanoff, SHIELD của rơi vào tình trạng bị thu hồi và bị cho là những kẻ phản bội có tổ chức. Captain America mở một cuộc điều tra nguồn gốc của SHIELD và anh trở về nơi anh từng trải qua đào tạo cơ bản gần 100 năm trước đây. Những gì anh và Romanoff khám phá ở đó tạo ra một sự phát triển rất đáng ngạc nhiên với SHIELD, một dự án bí mật được gọi là \"Chiến dịch Cái nhìn sâu sắc\", và sự ra mắt của thế hệ tiếp theo của Helicarrier. Họ có thể ngăn chặn nó trước khi quá muộn?', 'https://www.youtube.com/embed/S12-4mXCNj4', '64073a96bc365-Captain-America-2-chien-binh-mua-dong.jpg', '64073a96bcd65-poster-chienbinhmuadong.jpg'),
+(48, 'Chiến Binh Báo Đen', 'Black Panther', 'Ryan Coogler', 2018, 3, 1, 0, 2, 0, 'Chiến Binh Báo Đen - Black Panther kể về T’Challa (Black Panther) là hoàng tử, một nhà sáng chế tài ba của đất nước Wakanda nằm tại Châu Phi, nơi sở hữu nguồn kim loại cực hiếm: vibranium. Với nguồn tài nguyên giàu có cùng sự tiến bộ vượt bậc, Wakanda trở thành mục tiêu tấn công của nhiều quốc gia, đế chế suốt vài thiên niên kỷ, mục đích của những kẻ xâm lược là giành được số vũ khí khủng khiếp và của cải ở đất nước giàu có này. Là người đứng đầu đất nước, hoàng tử T’Challa sẽ phải bảo vệ người dân của mình khỏi những mưu đồ từ nước ngoại bang. Sở hữu khả năng tác chiến nhanh nhạy, bộ giáp và móng vuốt bằng vibranium, có thể nói Black Panther cũng là một siêu anh hùng trong thế giới Marvel.', 'https://www.youtube.com/embed/S12-4mXCNj4', '64073c328d7b0-black1.jpg', '64073c328daa0-poster-blackpanther2.png'),
+(49, 'Biệt Đội Siêu Anh Hùng', 'The Avengers', 'Joss Whedon', 2012, 3, 1, 0, 2, 0, 'Biệt Đội Siêu Anh Hùng là câu truyện về Loki, người em trai nuôi độc ác của Thor đến từ hành tinh Asgard xa xôi, đột nhập vào căn cứ của S.H.I.E.L.D để chiếm khối Tesseract chứa nguồn năng lượng vô hạn. Hắn còn âm mưu dẫn một đội quân tới Trái đất thôn tính và biến loài người thành nô lệ. Nick Fury, giám đốc của S.H.I.E.L.D nỗ lực tập hợp một đội quân tinh nhuệ nhất để bảo vệ trái đất khỏi âm mưu của Loki. Tuy nhiên, anh và người cộng sự lâu năm là điệp viên Coulson phải tìm cách thuyết phục các siêu anh hùng phối hợp thành một đội thay vì chống lại nhau...', 'https://www.youtube.com/embed/S12-4mXCNj4', '64073cdc21ab6-TheAvengers2012Poster1.jpg', '64073cdc21d69-poster-bietdoisieuanhhung2.jpg'),
+(50, 'Biệt Đội Siêu ANh Hùng 2: Đế Chế Ultron', 'Avengers 2: Age of Ultron', 'Joss Whedon', 2015, 3, 1, 0, 2, 0, 'Biệt Đội Siêu Anh Hùng 2: Đế Chế Ultron lấy khởi đầu từ nhân vật Tony Stark - siêu anh hùng Iron Man. Khi chàng tỷ phú tái khởi động dự án gìn giữ hòa bình bị ngưng hoạt động từ lâu, mọi chuyện diễn ra không hề suôn sẻ. Các siêu anh hùng vĩ đại nhất trên Trái đất gồm Iron Man, Captain America, Thor, Hulk, Black Widow và Hawkeye đứng trước một thử thách vô cùng khó khăn trong việc đem lại cân bằng cho toàn thế giới. Trong phần này, biệt đội siêu anh hùng của chúng ta sẽ phải chiến đấu với binh đoàn robot được biết đến với cái tên là Ultron.', 'https://www.youtube.com/embed/S12-4mXCNj4', '64073dfc3da92-Avengers_-_Age_of_Utron_Poster1.jpg', '64073dfc3ddd1-poster-bietdoisieuanhhuyultron2.jpg'),
+(51, 'Biệt Đội SIêu Anh Hùng 3: Cuộc Chiến Vô Cực', 'Avengers: Infinity War', 'Joe Russo, Anthony Russo', 2018, 3, 1, 0, 2, 0, 'Biệt Đội Siêu Anh Hùng 3: Cuộc Chiến Vô Cực: là câu truyện sau chuyến hành trình độc nhất vô nhị không ngừng mở rộng và phát triển vụ trũ điện ảnh Marvel, bộ phim Avengers: Cuộc Chiến Vô Cực sẽ mang đến màn ảnh trận chiến cuối cùng khốc liệt nhất mọi thời đại. Biệt đội Avengers và các đồng minh siêu anh hùng của họ phải chấp nhận hy sinh tất cả để có thể chống lại kẻ thù hùng mạnh Thanos trước tham vọng hủy diệt toàn bộ vũ trụ của hắn', 'https://www.youtube.com/embed/S12-4mXCNj4', '64073ea8d9ea7-Avengers-Infinity_War-Official-Poster1.jpg', '64073ea8e79bc-poster-ttxvn_avengers2.jpg'),
+(52, 'Biệt Đội Siêu ANh Hùng 2: Đế Chế Ultron', 'Avengers 2: Age of Ultron', 'Joss Whedon', 2015, 3, 20, 0, 1, 0, 'Biệt Đội Siêu Anh Hùng 2: Đế Chế Ultron lấy khởi đầu từ nhân vật Tony Stark - siêu anh hùng Iron Man. Khi chàng tỷ phú tái khởi động dự án gìn giữ hòa bình bị ngưng hoạt động từ lâu, mọi chuyện diễn ra không hề suôn sẻ. Các siêu anh hùng vĩ đại nhất trên Trái đất gồm Iron Man, Captain America, Thor, Hulk, Black Widow và Hawkeye đứng trước một thử thách vô cùng khó khăn trong việc đem lại cân bằng cho toàn thế giới. Trong phần này, biệt đội siêu anh hùng của chúng ta sẽ phải chiến đấu với binh đoàn robot được biết đến với cái tên là Ultron.', 'https://www.youtube.com/embed/S12-4mXCNj4', '64073fa577b77-bietdoisieuanhhuyultron2.jpg', '64073fa578543-poster-TheAvengers2012Poster1.jpg'),
+(53, 'Captain America 2: Chiến Binh Mùa Đông', 'Captain America: The Winter Soldier', 'Anthony Russo, Joe Russo', 2015, 3, 30, 0, 1, 0, 'Chiến Binh Mùa Đông - Captain America: The Winter Soldier là phần tiếp theo của Captain America: The First Avenger. Steve Rogers muốn thấu hiểu một nước Mỹ hiện đại sau khi bị đông lạnh 50 năm trong nước đá. Một mối đe dọa mới chống lại S.H.I.E.L.D xuất hiện. Đó chính là Chiến Binh Mùa Đông. Trong lúc nguồn gốc của Chiến Binh Mùa Đông không rõ ràng, mối đe dọa của SHEILD đến từ tổ chức Hydra. Đặc biệt là sau khi thỏa hiệp với Nick Fury và chất Romanoff, SHIELD của rơi vào tình trạng bị thu hồi và bị cho là những kẻ phản bội có tổ chức. Captain America mở một cuộc điều tra nguồn gốc của SHIELD và anh trở về nơi anh từng trải qua đào tạo cơ bản gần 100 năm trước đây. Những gì anh và Romanoff khám phá ở đó tạo ra một sự phát triển rất đáng ngạc nhiên với SHIELD, một dự án bí mật được gọi là \"Chiến dịch Cái nhìn sâu sắc\", và sự ra mắt của thế hệ tiếp theo của Helicarrier. Họ có thể ngăn chặn nó trước khi quá muộn?', 'https://www.youtube.com/embed/S12-4mXCNj4', '64073ff30852b-TheAvengers2012Poster1.jpg', '64073ff308948-poster-chienbinhmuadong.jpg'),
+(54, 'Captain America 2: Chiến Binh Mùa Đông', 'Captain America: The Winter Soldier', 'Anthony Russo, Joe Russo', 2016, 3, 10, 0, 1, 0, 'Chris Evans, Scarlett Johansson, Samuel L. Jackson, Robert Redford, Sebastian Stan, Anthony Mackie, Cobie Smulders, Frank Grillo', '', '6407402d39d82-bietdoisieuanhhung2.jpg', '6407402d3a4fc-poster-black1.jpg'),
+(55, 'Chiến Binh Báo Đen', 'Black Panther', 'Black Panther', 2016, 3, 30, 0, 1, 0, 'Black Panther', '', '6407406c02e0c-black1.jpg', '6407406c0315c-poster-bietdoisieuanhhung2.jpg'),
+(56, 'Chiến Binh Báo Đen', 'Chiến Binh Báo Đen', 'Ryan Coogler', 2013, 3, 21, 0, 1, 0, 'Frank Grillo, Forest Whitaker', 'https://www.youtube.com/embed/S12-4mXCNj4', '640740da474cb-bietdoisieuanhhuyultron2.jpg', '640740da4783a-poster-Avengers_-_Age_of_Utron_Poster1.jpg'),
+(57, 'Phù Thủy Tối Thượng Trong Đa Vũ Trụ Hỗn Loạn', 'Captain America: Kẻ Báo Thù Đầu Tiên', 'Joe Johnston', 2022, 3, 31, 0, 1, 0, 'Captain America: Kẻ Báo Thù Đầu Tiên lấy bối cảnh phim bắt đầu năm 1942, khi Mỹ đang tham gia Thế chiến II và cần tới những chiến binh can trường. Chàng trai Steve Rogers (Chris Evans) là một người như vậy, nhưng thể hình quá thấp bé khiến anh không thể đạt được ước mơ tòng quân. Cơ may đến với Rogers khi anh được chọn tham gia một thí nghiệm của chính phủ, giúp biến người thường trở thành siêu chiến binh. Mọi việc diễn ra suôn sẻ, biến Rogers thành một người cao to vạm vỡ, đầu óc tiếp thu mọi kỹ năng chiến đấu nhanh và vẫn giữ được trái tim nhân hậu.Anh trở thành Captain America, biểu tượng của nước Mỹ kể từ đó. Đối thủ của anh là phe Phát-xít, với quái nhân Red Skull, kẻ không chỉ quyền năng mà còn rất tàn ác.', 'https://www.youtube.com/embed/S12-4mXCNj4', '64074113c2863-Avengers_-_Age_of_Utron_Poster1.jpg', '64074113c2ad8-poster-bietdoisieuanhhung2.jpg'),
+(58, 'Phù Thủy Tối Thượng Trong Đa Vũ Trụ Hỗn Loạn', 'Joe Johnston', 'Joe Johnston', 2014, 3, 12, 0, 1, 0, 'Hoạt Hình, Khoa Học-Viễn Tưởng', 'https://www.youtube.com/embed/S12-4mXCNj4', '640741428a40b-TheAvengers2012Poster1.jpg', '640741428a86b-poster-ttxvn_avengers2.jpg'),
+(59, 'Phù Thủy Tối Thượng', 'Doctor Strange', 'Scott Derrickson', 2016, 3, 24, 0, 1, 0, 'Hoạt Hình, Hình Sự', 'https://www.youtube.com/embed/S12-4mXCNj4', '6407417bea181-Poster_Captain_America_1.jpg', '6407417bea58c-poster-bietdoisieuanhhuyultron2.jpg'),
+(60, 'Phù Thủy Tối Thượng', 'Doctor Strange', 'Scott Derrickson', 2014, 1, 41, 0, 1, 0, 'Benedict Cumberbatch, Benedict Wong, Mads Mikkelsen, Michael Stuhlbarg, Rachel McAdams, Tilda Swinton', 'https://www.youtube.com/embed/S12-4mXCNj4', '640741b207f12-Avengers-Infinity_War-Official-Poster1.jpg', '640741b208254-poster-bietdoisieuanhhuyultron2.jpg'),
+(61, 'Phù Thủy Tối Thượng', 'Doctor Strange', 'Scott Derrickson', 2016, 2, 12, 0, 1, 0, 'Benedict Cumberbatch, Benedict Wong, Mads Mikkelsen, Michael Stuhlbarg, Rachel McAdams, Tilda Swinton', 'https://www.youtube.com/embed/S12-4mXCNj4', '640741e06932e-chienbinhmuadong.jpg', '640741e06966b-poster-bietdoisieuanhhung2.jpg'),
+(62, 'Captain America 3: Nội Chiến Siêu Anh Hùng', 'Captain America: Civil War', 'Anthony Russo, Joe Russo', 2015, 1, 0, 0, 1, 0, 'Captain America: Nội Chiến Siêu Anh Hùng sẽ trở lại sau một mùa hè bùng nổ với “Avengers: Đế Chế Ultron” và “Ant-Man – Người Kiến”, Marvel Studios tiếp tục khiến các khán giả đứng ngồi không yên khi hé lộ những tình tiết kịch tính của cuộc nội chiến nảy lửa giữa các siêu anh hùng, mở đầu cho Phase 3 trong Vũ Trụ Điện Ảnh Marvel. Trailer mở đầu với phân cảnh đã từng xuất hiện trong After Credit của “Ant-Man: Người Kiến” – Falcon và Captain America tìm thấy Bucky!. “Chiến binh mùa đông” Bucky đã nhớ lại mọi thứ và Captain sẵn sàng cứu anh khỏi sự truy đuổi của chính phủ. Cùng với nhiều sự vụ xảy ra và biệt đội Avengers góp phần không nhỏ trong việc làm thiệt hại tài sản, chính phủ quyết định thiết lập cơ quan quản lý và giám sát những siêu anh hùng này. Sự chia rẽ nội bộ bắt đầu xảy đến. Một bên được lãnh đạo bởi Steve Rogers (Captain America) với mong muốn duy trì cả biệt đội để thực hiện mục tiêu bảo vệ nhân loại mà không có sự can thiệp nào từ bên ngoài. Phe còn lại do Tony Stark (Iron Man) đứng đầu, luôn hỗ trợ giám sát và có trách nhiệm giải trình mọi việc làm với chính phủ. Kịch tính được đẩy lên cao trào khi Captain America và Bucky cùng trực tiếp chiến đấu với Iron Man. Các siêu anh hùng khác cũng chia thành 2 phe, nhưng Marvel vẫn chưa chính thức xác nhận ai sẽ về phe nào. Biệt đội siêu anh hùng trong bom tấn mới nhất này sẽ có thêm hai thành viên đáng chú ý: Black Panther (Chadwick Boseman thủ vai) và Spider-Man do Tom Holland thủ vai – lần đầu tiên xuất hiện trong Vũ Trụ Điện Ảnh Marvel.', 'https://www.youtube.com/embed/S12-4mXCNj4', '6407424370e1d-bietdoisieuanhhung2.jpg', '640742437e640-poster-TheAvengers2012Poster1.jpg'),
+(63, 'Captain America 3: Nội Chiến Siêu Anh Hùng', 'Captain America: Civil War', 'Anthony Russo, Joe Russo', 2013, 1, 21, 0, 1, 0, 'Elizabeth Olsen, Tom Holland, Marisa Tomei, Chris Evans, Robert Downey Jr, Paul Rudd, Scarlett Johansson, Sebastian Stan', 'https://www.youtube.com/embed/S12-4mXCNj4', '64074274ee96d-kebaothudautien.png', '64074274eec6e-poster-bietdoisieuanhhuyultron2.jpg'),
+(64, 'Captain America 3: Nội Chiến Siêu Anh Hùng', 'Captain America: Civil War', 'Anthony Russo, Joe Russo', 2014, 1, 12, 0, 1, 0, 'Elizabeth Olsen, Tom Holland, Marisa Tomei, Chris Evans, Robert Downey Jr, Paul Rudd, Scarlett Johansson, Sebastian Stan', 'https://www.youtube.com/embed/S12-4mXCNj4', '640742a4ea5dd-Avengers_-_Age_of_Utron_Poster1.jpg', '640742a4ea982-poster-bietdoisieuanhhuyultron2.jpg');
 
 -- --------------------------------------------------------
 
@@ -325,52 +270,119 @@ CREATE TABLE `film_actor` (
 --
 
 INSERT INTO `film_actor` (`film_id`, `actor_id`) VALUES
-(1, 1),
-(1, 2),
-(1, 3),
-(1, 4),
-(1, 5),
-(1, 6),
-(2, 7),
-(2, 8),
-(2, 9),
-(2, 10),
-(2, 11),
-(32, 134),
-(32, 135),
-(32, 136),
-(32, 137),
-(32, 138),
-(32, 139),
-(32, 140),
-(32, 141),
-(32, 142),
-(32, 143),
-(32, 144),
-(3, 12),
-(3, 13),
-(3, 14),
-(3, 15),
-(3, 16),
-(35, 156),
-(35, 157),
-(35, 158),
-(35, 159),
-(35, 160),
-(35, 161),
-(35, 162),
-(36, 163),
-(36, 164),
-(36, 165),
-(36, 166),
-(36, 167),
-(36, 168),
-(36, 169),
-(36, 170),
-(4, 17),
-(4, 18),
-(4, 19),
-(4, 20);
+(44, 173),
+(44, 176),
+(44, 177),
+(44, 178),
+(44, 172),
+(44, 174),
+(45, 179),
+(45, 180),
+(45, 181),
+(45, 182),
+(45, 183),
+(45, 184),
+(45, 185),
+(45, 186),
+(46, 182),
+(46, 187),
+(46, 188),
+(46, 189),
+(46, 186),
+(46, 190),
+(46, 191),
+(47, 182),
+(47, 185),
+(47, 188),
+(47, 192),
+(47, 186),
+(47, 193),
+(47, 194),
+(47, 195),
+(48, 196),
+(48, 197),
+(48, 198),
+(48, 199),
+(48, 200),
+(48, 201),
+(48, 202),
+(48, 203),
+(49, 182),
+(49, 183),
+(49, 185),
+(49, 204),
+(49, 205),
+(49, 206),
+(49, 207),
+(49, 208),
+(50, 205),
+(50, 179),
+(50, 206),
+(50, 204),
+(50, 182),
+(50, 183),
+(50, 185),
+(50, 188),
+(51, 206),
+(51, 182),
+(51, 183),
+(51, 185),
+(52, 189),
+(52, 179),
+(52, 197),
+(52, 203),
+(53, 191),
+(53, 195),
+(53, 195),
+(54, 203),
+(54, 194),
+(54, 203),
+(55, 202),
+(55, 173),
+(56, 195),
+(56, 197),
+(57, 201),
+(57, 201),
+(58, 189),
+(58, 200),
+(59, 175),
+(59, 197),
+(60, 173),
+(60, 176),
+(60, 177),
+(60, 178),
+(60, 172),
+(60, 174),
+(61, 173),
+(61, 176),
+(61, 177),
+(61, 178),
+(61, 172),
+(61, 174),
+(62, 179),
+(62, 180),
+(62, 181),
+(62, 182),
+(62, 183),
+(62, 184),
+(62, 185),
+(62, 186),
+(63, 179),
+(63, 180),
+(63, 181),
+(63, 182),
+(63, 183),
+(63, 184),
+(63, 185),
+(63, 186),
+(64, 179),
+(64, 180),
+(64, 181),
+(64, 182),
+(64, 183),
+(64, 184),
+(64, 185),
+(64, 186);
 
 -- --------------------------------------------------------
 
@@ -388,26 +400,48 @@ CREATE TABLE `film_category` (
 --
 
 INSERT INTO `film_category` (`film_id`, `category_id`) VALUES
-(1, 7),
-(1, 9),
-(1, 10),
-(1, 11),
-(1, 13),
-(2, 5),
-(2, 6),
-(2, 14),
-(32, 16),
-(3, 5),
-(3, 6),
-(3, 7),
-(35, 7),
-(35, 12),
-(36, 7),
-(36, 12),
-(4, 5),
-(4, 6),
-(4, 7),
-(4, 15);
+(44, 2),
+(44, 12),
+(45, 7),
+(45, 12),
+(46, 7),
+(46, 12),
+(47, 7),
+(47, 6),
+(48, 7),
+(48, 12),
+(49, 7),
+(49, 12),
+(49, 13),
+(50, 7),
+(50, 12),
+(51, 7),
+(51, 12),
+(52, 6),
+(52, 9),
+(52, 11),
+(53, 1),
+(54, 1),
+(54, 6),
+(54, 8),
+(54, 8),
+(54, 11),
+(55, 1),
+(55, 3),
+(55, 6),
+(56, 1),
+(56, 5),
+(57, 1),
+(57, 11),
+(58, 1),
+(58, 12),
+(59, 1),
+(59, 9),
+(60, 1),
+(61, 1),
+(62, 1),
+(63, 1),
+(64, 1);
 
 -- --------------------------------------------------------
 
@@ -467,7 +501,6 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `user_name`, `full_name`, `password`, `birthday`, `email`, `gender`, `usertype`) VALUES
 (1, 'son', 'Quach Thanh Son', 'Aptx4869', '2001-03-09', 'zzixx27xy93sq@gmail.com', 'male', 1),
 (2, 'sonquach', 'Quach Thanh Son', 'Aptx4869', '2001-03-09', 'zzixx27xy93qs@gmail.com', 'male', 2),
-(3, 'son01', 'Quach Thanh Son', 'Aptx4869', '2001-03-09', 'zzixx27xy93qs@gmail.com', 'female', 3),
 (4, 'sonhb', 'Quach Thanh Son', 'Aptx4869', '2001-09-03', 'zzixx27xy93qs@gmail.com', 'male', 3);
 
 --
@@ -558,7 +591,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `actor`
 --
 ALTER TABLE `actor`
-  MODIFY `actor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `actor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=209;
 
 --
 -- AUTO_INCREMENT cho bảng `comment`
@@ -570,13 +603,13 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT cho bảng `episodes`
 --
 ALTER TABLE `episodes`
-  MODIFY `episode_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `episode_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT cho bảng `film`
 --
 ALTER TABLE `film`
-  MODIFY `film_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `film_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT cho bảng `nation`
