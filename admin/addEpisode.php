@@ -104,6 +104,7 @@ $film = $result[0];
                             var percentComplete = event.loaded / event.total * 100;
                             progressBar.style.width = percentComplete + '%';
                             progressBar.innerHTML = percentComplete + '%';
+                            // if(percentComplete==100) event.stopPropagation();
                         }
                     });
 

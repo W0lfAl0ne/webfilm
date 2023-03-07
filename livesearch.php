@@ -20,7 +20,7 @@ if (count($result) > 0) {
             foreach ($films as $film) {
             ?>
                 <a class="list-search" href="phim.php?id='<?php echo $film['film_id'] ?>'">
-                    <img class="image" src="<?php echo $film['image'] ?>" alt="<?php echo $film['film_name'] ?>">
+                    <img class="image" src="./uploads/images/<?php echo $film['image'] ?>" alt="<?php echo $film['film_name'] ?>">
                     <div class="list-search-title">
                         <b><?php echo $film['film_name'] ?></b>
                         <i><?php echo $film['default_name'] ?> (<?php echo $film['release_year'] ?>)</i>

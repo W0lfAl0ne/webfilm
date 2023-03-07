@@ -262,10 +262,12 @@ ob_start();
         <?php
         require_once('../database/database.php');
         if (isset($_POST["button_update"])) {
-
+            $conn = new mysqli(HOST, USERNAME, PASSWORD, DATABASE);
+            mysqli_set_charset($conn, 'utf8');
            
             $fileNameImg = $row["image"];
             $fileNamePoster = $row["poster"];
+            
             if (isset($_FILES["ImgToUpload"])) {
                 $uploadDir = "../uploads/images/";
                 $fileNameImg = uniqid() . '-' . basename($_FILES["ImgToUpload"]["name"]);
@@ -307,8 +309,7 @@ ob_start();
 
                 //thực hiện việc lưu trữ dữ liệu vào db 
                 $sql = "SELECT * FROM film WHERE film_id = '$filmID'";
-                $conn = new mysqli(HOST, USERNAME, PASSWORD, DATABASE);
-                mysqli_set_charset($conn, 'utf8');
+                
 
                 $check = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($check) <= 0) { ?>
