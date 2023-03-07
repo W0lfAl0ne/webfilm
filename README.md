@@ -1,5 +1,6 @@
 # webfilm
  link trải nghiệm: https://wwebfilm.000webhostapp.com/
+ Vì hạn chế dung lượng của hosting nên chỉ có một video demo của phim "Doctor Strange" ở Banner
 # Trang Chủ
 
 <img src="./img/img.png">
