@@ -1,6 +1,7 @@
 <?php
 session_start();
 ob_start();
+
 require_once('database/database.php');
 
 if (isset($_POST["log_out"])) {
@@ -93,10 +94,10 @@ if (isset($_POST["btn_login"])) {
 
   <nav class="navbar-inverse navbar-fixed-top">
     <div class="navbar-content container-fluid">
-      <a href="https://webfilmplus.000webhostapp.com"><b class="logo">FilmsPlus</b></a>
+      <a href="<?php echo $url ?>"><b class="logo">FilmsPlus</b></a>
 
       <ul class="nav navbar-nav uppercase">
-        <li class="active"><a href="https://webfilmplus.000webhostapp.com"> <span class="glyphicon glyphicon-home"></span> Trang Chủ</a></li>
+        <li class="active"><a href="<?php echo $url ?>"> <span class="glyphicon glyphicon-home"></span> Trang Chủ</a></li>
         <li><a href="locphim.php?filmType_id=<?php echo $listFilmTypes[0]["filmType_id"] ?>"><?php echo $listFilmTypes[0]["filmType_name"] ?></a></li>
         <li><a href="locphim.php?filmType_id=<?php echo $listFilmTypes[1]["filmType_id"] ?>"><?php echo $listFilmTypes[1]["filmType_name"] ?></a></li>
         <li class="dropdown">
@@ -227,7 +228,7 @@ if (isset($_POST["btn_login"])) {
           <?php for ($i = 0; $i < 5; $i++) { ?>
             <a class="item <?php $tmp = $i == 0 ? 'active' : '';
                             echo $tmp ?>" href="phim.php?id=<?php echo $filmhot[$i]['film_id'] ?>">
-              <img src="<?php echo $filmhot[$i]['poster'] ?>" alt="<?php echo $filmhot[$i]['film_name'] ?>">
+              <img src="./uploads/images/<?php echo $filmhot[$i]['poster'] ?>" alt="<?php echo $filmhot[$i]['film_name'] ?>">
               <div class="carousel-caption">
                 <h3><?php echo $filmhot[$i]['film_name'] ?></h3>
                 <p><?php echo $filmhot[$i]['description'] ?></p>
@@ -272,7 +273,7 @@ if (isset($_POST["btn_login"])) {
             <div class="col-sm-3">
               <div class="thumbnail">
                 <a href="phim.php?id=<?php echo $film['film_id'] ?>">
-                  <img src="<?php echo $film['image'] ?>" alt="<?php echo $film['film_name'] ?>" style="width:100%">
+                  <img src="./uploads/images/<?php echo $film['image'] ?>" alt="<?php echo $film['film_name'] ?>" style="width:100%">
                   <div class="film_status"><?php
                                             if ($film['status'] >= $film['episode_number']) echo 'Hoàn Tất';
                                             else echo 'Tập ' . $film['status'] . '/' . $film['episode_number'];
@@ -311,7 +312,7 @@ if (isset($_POST["btn_login"])) {
                 ?>
                   <li>
                     <a class="list-item" href="phim.php?id='<?php echo $film['film_id'] ?>'">
-                      <img class="image" src="<?php echo $film['image'] ?>" alt="<?php echo $film['film_name'] ?>">
+                      <img class="image" src="./uploads/images/<?php echo $film['image'] ?>" alt="<?php echo $film['film_name'] ?>">
                       <div class="list-item-title">
                         <b><?php echo $film['film_name'] ?></b>
                         <i><?php echo $film['default_name'] ?></i>
@@ -387,7 +388,7 @@ if (isset($_POST["btn_login"])) {
           <div class="col-sm-3">
             <div class="thumbnail">
               <a href="phim.php?id='<?php echo $film['film_id'] ?>'">
-                <img src="<?php echo $film['image'] ?>" alt="<?php echo $film['film_name'] ?>" style="width:100%">
+                <img src="./uploads/images/<?php echo $film['image'] ?>" alt="<?php echo $film['film_name'] ?>" style="width:100%">
                 <div class="caption">
                   <p><?php echo $film['film_name'] ?></p>
                 </div>
@@ -415,7 +416,7 @@ if (isset($_POST["btn_login"])) {
           <div class="col-sm-3">
             <div class="thumbnail">
               <a href="phim.php?id='<?php echo $film['film_id'] ?>'">
-                <img src="<?php echo $film['image'] ?>" alt="<?php echo $film['film_name'] ?>" style="width:100%">
+                <img src="./uploads/images/<?php echo $film['image'] ?>" alt="<?php echo $film['film_name'] ?>" style="width:100%">
                 <div class="caption">
                   <p><?php echo $film['film_name'] ?></p>
                 </div>

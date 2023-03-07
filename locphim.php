@@ -52,9 +52,9 @@ $films_search = $result;
  
     <nav class="navbar-inverse navbar-fixed-top">
         <div class="container-fluid " >
-            <a href="https://webfilmplus.000webhostapp.com"><b class="logo">FilmsPlus</b></a>
+            <a href="<?php echo $url ?>"><b class="logo">FilmsPlus</b></a>
             <ul class="nav navbar-nav uppercase">
-                <li class="active"><a href="https://webfilmplus.000webhostapp.com"> <span class="glyphicon glyphicon-home"></span> Trang Chủ</a></li>
+                <li class="active"><a href="<?php echo $url ?>"> <span class="glyphicon glyphicon-home"></span> Trang Chủ</a></li>
                 <li><a href="locphim.php?filmType_id=<?php echo $listFilmTypes[0]["filmType_id"] ?>"><?php echo $listFilmTypes[0]["filmType_name"] ?></a></li>
                 <li><a href="locphim.php?filmType_id=<?php echo $listFilmTypes[1]["filmType_id"] ?>"><?php echo $listFilmTypes[1]["filmType_name"] ?></a></li>
         
@@ -152,7 +152,7 @@ $films_search = $result;
                                 <div class="col-sm-3">
                                     <div class="thumbnail">
                                         <a href="phim.php?id='<?php echo $film_search['film_id']?>'">
-                                            <img src="<?php echo $film_search['image'] ?>" alt="<?php echo $film_search['film_name']?>" style="width:100%">
+                                            <img src="./uploads/images/<?php echo $film_search['image'] ?>" alt="<?php echo $film_search['film_name']?>" style="width:100%">
                                             <div class="film_status"><?php 
                                                 if($film_search['status']==$film_search['episode_number']) echo 'Hoàn Tất';
                                                 else echo 'Tập ' . $film_search['status'] . '/' . $film_search['episode_number'];
@@ -196,7 +196,7 @@ $films_search = $result;
                             ?>
                             <li>
                                 <a class="list-item" href="phim.php?id='<?php echo $film['film_id']?>'">
-                                    <img class="image" src="<?php echo $film['image'] ?>" alt="<?php echo $film['film_name']?>">
+                                    <img class="image" src="./uploads/images/<?php echo $film['image'] ?>" alt="<?php echo $film['film_name']?>">
                                     <div class="list-item-title">
                                         <b><?php echo $film['film_name']?></b>
                                         <i><?php echo $film['default_name']?></i>
@@ -236,7 +236,7 @@ $films_search = $result;
                             ?>
                             <li>
                                 <a class="list-item" href="phim.php?id='<?php echo $film['film_id']?>'">
-                                    <img class="image" src="<?php echo $film['image'] ?>" alt="<?php echo $film['film_name']?>">
+                                    <img class="image" src="./uploads/images/<?php echo $film['image'] ?>" alt="<?php echo $film['film_name']?>">
                                     <div class="list-item-title">
                                         <b><?php echo $film['film_name']?></b>
                                         <i><?php echo $film['default_name']?></i>

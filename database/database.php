@@ -3,6 +3,7 @@ const HOST = 'localhost';
 const USERNAME = 'root';
 const PASSWORD = '';
 const DATABASE = 'databasefilm';
+$url="http://localhost/webfilm";
 
 function createDataBase(){
     $conn = new mysqli(HOST, USERNAME, PASSWORD,DATABASE);

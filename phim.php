@@ -120,10 +120,10 @@ if (isset($_POST["btn_login"])) {
 
   <nav class="navbar-inverse navbar-fixed-top">
     <div class="navbar-content container-fluid">
-      <a href="localhost/t/"><b class="logo">FilmsPlus</b></a>
+      <a href="<?php echo $url ?>"><b class="logo">FilmsPlus</b></a>
 
       <ul class="nav navbar-nav uppercase">
-        <li class="active"><a href="localhost/t/"> <span class="glyphicon glyphicon-home"></span> Trang Chủ</a></li>
+        <li class="active"><a href="<?php echo $url ?>"> <span class="glyphicon glyphicon-home"></span> Trang Chủ</a></li>
         <li><a href="locphim.php?filmType_id=<?php echo $listFilmTypes[0]["filmType_id"] ?>"><?php echo $listFilmTypes[0]["filmType_name"] ?></a></li>
         <li><a href="locphim.php?filmType_id=<?php echo $listFilmTypes[1]["filmType_id"] ?>"><?php echo $listFilmTypes[1]["filmType_name"] ?></a></li>
         <li class="dropdown">
@@ -239,7 +239,7 @@ if (isset($_POST["btn_login"])) {
 
     <div class=" row content">
       <ul class="breadcrumb">
-        <li><a href="http://localhost/html_css"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li><a href="<?php echo $url ?>"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
         <li><a href="locphim.php?filmType_id=<?php echo $film['filmType_id'] ?>"><?php echo $film['filmType_id'] == 1 ? $listFilmTypes[0]['filmType_name'] : $listFilmTypes[0]['filmType_name'] ?></a></li>
         <li class="active"><?php echo $film['film_name'] ?></li>
       </ul>
@@ -249,7 +249,7 @@ if (isset($_POST["btn_login"])) {
 
       <div class="col-sm-3 text-center">
         <div class="image">
-          <img src="<?php echo $film['image'] ?>" alt="<?php echo $film['film_name'] ?>">
+          <img src="./uploads/images/<?php echo $film['image'] ?>" alt="<?php echo $film['film_name'] ?>">
           <a href="xemphim.php?id=<?php echo $id ?>" target="_top">
             <button>Xem Phim</button>
           </a>

@@ -116,10 +116,10 @@ if (isset($_POST["btn_login"])) {
     <!-- HEADER -->
     <nav class="navbar-inverse navbar-fixed-top">
         <div class="navbar-content container-fluid">
-            <a href="localhost/t"><b class="logo">FilmsPlus</b></a>
+            <a href="<?php echo $url ?>"><b class="logo">FilmsPlus</b></a>
 
             <ul class="nav navbar-nav uppercase">
-                <li class="active"><a href="localhost/t"> <span class="glyphicon glyphicon-home"></span> Trang Chủ</a></li>
+                <li class="active"><a href="<?php echo $url ?>"> <span class="glyphicon glyphicon-home"></span> Trang Chủ</a></li>
                 <li><a href="locphim.php?filmType_id=<?php echo $listFilmTypes[0]["filmType_id"] ?>"><?php echo $listFilmTypes[0]["filmType_name"] ?></a></li>
                 <li><a href="locphim.php?filmType_id=<?php echo $listFilmTypes[1]["filmType_id"] ?>"><?php echo $listFilmTypes[1]["filmType_name"] ?></a></li>
                 <li class="dropdown">
@@ -235,7 +235,7 @@ if (isset($_POST["btn_login"])) {
 
         <div class=" row content">
             <ul class="breadcrumb">
-                <li><a href="localhost/t"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li><a href="<?php echo $url ?>"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
                 <li><a href="locphim.php?filmType_id=<?php echo $film['filmType_id'] ?>"><?php echo $film['filmType_id'] == 1 ? $listFilmTypes[0]['filmType_name'] : $listFilmTypes[0]['filmType_name'] ?></a></li>
                 <li><a href="phim.php?id=<?php echo $film['film_id'] ?>"><?php echo $film['film_name'] ?></a></li>
                 <li class="active"><?php echo $film_episode['episode_name'] ?></li>
@@ -246,7 +246,7 @@ if (isset($_POST["btn_login"])) {
 
         <div class="row content text-center sidenav">
             <div class="video-block">
-                <iframe id="video" width="1000px" height="600px" src="<?php echo $film_episode['url'] ?>" frameborder="0" allowfullscreen></iframe>
+                <iframe id="video" width="1000px" height="600px" src="./uploads/videos/<?php echo $film_episode['url'] ?>" frameborder="0" allowfullscreen></iframe>
             </div>
 
             <ul class="list-episode nav nav-pills">
